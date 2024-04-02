@@ -25,28 +25,10 @@
 
 | ITEM   | STATUS |
 | :----: | :----: |
-|teste| :white_check_mark: |
-|texte| :white_check_mark: |
-
-### Sprint 2 - LM Funcional
-
-| ITEM   | STATUS |
-| :----: | :----: |
-|teste| :white_check_mark: |
-|texte| :white_check_mark: |
-
-### Sprint 3 - Resposta para o usuário e tela
-
-| ITEM   | STATUS |
-| :----: | :----: |
-|teste| :white_check_mark: |
-|texte| :white_check_mark: |
-
-### Sprint 4 - Funções secundárias e Design
-| ITEM   | STATUS |
-| :----: | :----: |
-|teste| :white_check_mark: |
-|texte| :white_check_mark: |
+|Criar repositório no GitHub| :white_check_mark: |
+|Backlog do produto| :white_check_mark: |
+|Backlog da sprint| :white_check_mark: |
+|Desenvolvimento de Protótipo no Figma| :white_check_mark: |
 
 ## 🛠️ Tecnologias
 
@@ -77,6 +59,21 @@ As seguintes ferramentas, linguagens, bibliotecas e tecnologias foram usadas na 
    <img align="left" title="vscode" height="30px" src="https://github.com/tandpfun/skill-icons/raw/main/icons/MySQL-Dark.svg"/>
    MySQL - Banco de dados
  </p>
- 
+
+
+<span id="equipe">
+
+## :busts_in_silhouette: Equipe
+
+|    Função     | Nome                     |                               LinkedIn                                |                     GitHub                     |
+| :----------:  | :----------------------- | :-------------------------------------------------------------------: | :--------------------------------------------: |
+|   Scrum Master    | Samuel                   |[<img height="30px" src="https://github.com/tandpfun/skill-icons/blob/main/icons/LinkedIn.svg">](https://www.linkedin.com/in/samuel-alkmin-machado-52743a292/)|      [<img align="center" height="30px" src="https://github.com/tandpfun/skill-icons/blob/main/icons/Github-Dark.svg"/>](https://github.com/samekmd)        |
+|   Product Owner   | Matheus                  |[<img height="30px" src="https://github.com/tandpfun/skill-icons/blob/main/icons/LinkedIn.svg">](https://www.linkedin.com/in/matheus-andrade-b1a65b1ba/)|      [<img align="center" height="30px" src="https://github.com/tandpfun/skill-icons/blob/main/icons/Github-Dark.svg"/>](https://github.com/MatheusAndrade1999)      | 
+| Dev Team  | Hoton                    |[<img height="30px" src="https://github.com/tandpfun/skill-icons/blob/main/icons/LinkedIn.svg">](https://www.linkedin.com/in/hoton-oliveira/)                                                   |         [<img align="center" height="30px" src="https://github.com/tandpfun/skill-icons/blob/main/icons/Github-Dark.svg"/>](https://github.com/hfoliveira90)     |
+| Dev Team | Vinicius                 |[<img height="30px" src="https://github.com/tandpfun/skill-icons/blob/main/icons/LinkedIn.svg">](https://www.linkedin.com/in/vinicius-peretta-5a2436227/)|      [<img align="center" height="30px" src="https://github.com/tandpfun/skill-icons/blob/main/icons/Github-Dark.svg"/>](https://github.com/Peretta)        |
+|   Dev Team    | Guilherme                |[<img height="30px" src="https://github.com/tandpfun/skill-icons/blob/main/icons/LinkedIn.svg">](https://www.linkedin.com/in/guilherme-sato-42b609292/)|      [<img align="center" height="30px" src="https://github.com/tandpfun/skill-icons/blob/main/icons/Github-Dark.svg"/>](https://github.com/thenewjapzzz)     |
+|   Dev Team    | Gustavo                  |[<img height="30px" src="https://github.com/tandpfun/skill-icons/blob/main/icons/LinkedIn.svg">](https://www.linkedin.com/in/gustavo-villela-a9314b268/)|      [<img align="center" height="30px" src="https://github.com/tandpfun/skill-icons/blob/main/icons/Github-Dark.svg"/>](https://github.com/TaldoGus)       |  
+
+→ [Voltar ao topo](#topo)
 
  
