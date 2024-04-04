@@ -6,18 +6,16 @@
 
 | Rank     | Prioridade |  US   | Item | Sprint | 
 | :----: | :----: | :----: | :----: | :----: |
-| #01    | Alta | EU, enquanto cliente, quero vizualizar a interface de como será meu tradutor, via protótipo | Wireframe |  1  |
-| #02    | Alta | EU, enquanto cliente, quero o backlog do produto para ter uma visão geral do produto presente no GitHub | Backlog |  1  |
-| #03    | Alta | EU, enquanto cliente, quero utilizar o LMStudio para que eu não precise me preocupar com configurações de hardware do meu computador  | Desktop App |  2  |
-| #04    | Alta |EU, enquanto cliente, quero traduzir linguagem natural (inglês) em linguagem de máquina (SQL) | Desktop App |  2  | 
-| #05    | Média |EU, enquanto cliente, quero uma interface contendo 3 principais itens, uma caixa para inglês, botão de enviar e dados do banco | Desktop App | 3  |
-| #06    | Baixa |EU, enquanto cliente, quero conseguir mudar minha LM de acordo com a minha necessidade| Desktop App | 4 |
-| #07    | Baixa |EU, enquanto cliente, quero poder utilizar inglês ou português para que seja feita a tradução para SQL | Desktop App| 4 |
+| #01    | Alta | EU, enquanto cliente, quero utilizar o LMStudio para que eu não precise me preocupar com configurações de hardware do meu computador  | Desktop App |  2  |
+| #02    | Alta |EU, enquanto cliente, quero traduzir linguagem natural (inglês) em linguagem de máquina (SQL) | Desktop App |  2  | 
+| #03    | Média |EU, enquanto cliente, quero uma interface contendo 3 principais itens, uma caixa para inglês, botão de enviar e dados do banco | Desktop App | 3  |
+| #04    | Baixa |EU, enquanto cliente, quero conseguir mudar minha LM de acordo com a minha necessidade| Desktop App | 4 |
+| #05    | Baixa |EU, enquanto cliente, quero poder utilizar inglês ou português para que seja feita a tradução para SQL | Desktop App| 4 |
 
 ## MVP
 <span id="mvp">
-    
- O Produto Mínimo Viável – ou Minimum Viable Product (MVP) – é a versão simplificada de um produto final de uma startup. O empreendedor vai oferecer o mínimo de funcionalidades com o objetivo de testar o produto ou serviço no mercado.<br><br>
+
+![PHOENIX TEAM - 2SEM - DATAEASE](https://github.com/Phoenix-Team-Fatec/DataEase/assets/69217649/4e8c2cab-90da-46f9-a1b9-5f3828860d66)
 
 ## Backlog das Sprints
 
