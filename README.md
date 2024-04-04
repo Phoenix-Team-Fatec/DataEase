@@ -6,11 +6,12 @@
 
 | Rank     | Prioridade |  US   | Item | Sprint | 
 | :----: | :----: | :----: | :----: | :----: |
-| #01    | Alta | EU, enquanto cliente, quero utilizar o LMStudio para que eu não precise me preocupar com configurações de hardware do meu computador, sendo ele o servidor local  | Desktop App |  2  |
+| #01    | Alta | EU, enquanto cliente, quero utilizar o DataEase para que eu não precise me preocupar com configurações de hardware do meu computador, sendo ele o servidor local  | Desktop App |  2  |
 | #02    | Alta |EU, enquanto cliente, quero traduzir linguagem natural (inglês) em linguagem de máquina (SQL) e retornar as informações do banco de dados | Desktop App |  2  | 
-| #03    | Média |EU, enquanto cliente, quero uma interface contendo 3 principais itens, uma caixa para inglês, botão de enviar e dados do banco | Desktop App | 3  |
-| #04    | Baixa |EU, enquanto cliente, quero conseguir mudar meu banco de dados, que será consultado de acordo com a minha necessidade| Desktop App | 4 |
-| #05    | Baixa |EU, enquanto cliente, quero poder utilizar inglês ou português para que seja feita a tradução para SQL | Desktop App| 4 |
+| #03    | Média |EU, enquanto cliente, quero uma interface contendo 3 principais itens, uma caixa para inglês, botão de enviar e dados do banco | Desktop App | 2  |
+| #04    | Média |EU, enquanto cliente, quero conseguir mudar meu banco de dados, que será consultado de acordo com a minha necessidade | Desktop App | 3 |
+| #05    | Média |EU, enquanto cliente, quero conseguir mudar meu modelo de linguagem (LM), de acordo com a minhha necesssidade | Desktop App| 4 |
+| #06    | Baixa |EU, enquanto cliente, quero poder utilizar inglês ou português para que seja feita a tradução para SQL | Desktop App| 4 |
 
 ## MVP
 <span id="mvp">
