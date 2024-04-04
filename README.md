@@ -6,10 +6,10 @@
 
 | Rank     | Prioridade |  US   | Item | Sprint | 
 | :----: | :----: | :----: | :----: | :----: |
-| #01    | Alta | EU, enquanto cliente, quero utilizar o LMStudio para que eu não precise me preocupar com configurações de hardware do meu computador  | Desktop App |  2  |
-| #02    | Alta |EU, enquanto cliente, quero traduzir linguagem natural (inglês) em linguagem de máquina (SQL) | Desktop App |  2  | 
+| #01    | Alta | EU, enquanto cliente, quero utilizar o LMStudio para que eu não precise me preocupar com configurações de hardware do meu computador, sendo ele o servidor local  | Desktop App |  2  |
+| #02    | Alta |EU, enquanto cliente, quero traduzir linguagem natural (inglês) em linguagem de máquina (SQL) e retornar as informações do banco de dados | Desktop App |  2  | 
 | #03    | Média |EU, enquanto cliente, quero uma interface contendo 3 principais itens, uma caixa para inglês, botão de enviar e dados do banco | Desktop App | 3  |
-| #04    | Baixa |EU, enquanto cliente, quero conseguir mudar minha LM de acordo com a minha necessidade| Desktop App | 4 |
+| #04    | Baixa |EU, enquanto cliente, quero conseguir mudar meu banco de dados, que será consultado de acordo com a minha necessidade| Desktop App | 4 |
 | #05    | Baixa |EU, enquanto cliente, quero poder utilizar inglês ou português para que seja feita a tradução para SQL | Desktop App| 4 |
 
 ## MVP
@@ -57,7 +57,17 @@ As seguintes ferramentas, linguagens, bibliotecas e tecnologias foram usadas na 
    <img align="left" title="vscode" height="30px" src="https://github.com/tandpfun/skill-icons/raw/main/icons/MySQL-Dark.svg"/>
    MySQL - Banco de dados
  </p>
-
+ 
+* <p>
+   <img align="left" title="vscode" height="30px" src="https://camo.githubusercontent.com/d1f8b9902e03d83c107b07a7194886dec1176f748afa6eeb425023ef0a4a6642/68747470733a2f2f6c6d73747564696f2e61692f6173736574732f616e64726f69642d6368726f6d652d353132783531322e706e67"/>
+   LM Studio - Chat Bot
+ </p>
+ 
+* <p>
+   <img align="left" title="vscode" height="30px" src="https://github.com/Phoenix-Team-Fatec/DataEase/assets/69217649/1a8d8fbf-f2ae-4b75-bfe5-4ee7a7c53925"/>
+   LangChain4j - Biblioteca Java
+ </p>
+ 
 
 <span id="equipe">
 
