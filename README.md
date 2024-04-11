@@ -1,5 +1,3 @@
-![dataeasegit](https://github.com/Phoenix-Team-Fatec/DataEase/assets/69217649/7b36309a-c0fa-4f39-8e69-e46377f52392)
-
 
 <span id="topo">
 <h1 align="center"> FATEC SJC - 2º Semestre ADS - DataEase </h1>
@@ -9,17 +7,16 @@
 | Rank     | Prioridade |  US   | Item | Sprint | 
 | :----: | :----: | :----: | :----: | :----: |
 | #01    | Alta | EU, enquanto cliente, quero utilizar o DataEase para que eu não precise me preocupar com configurações de hardware do meu computador, sendo ele o servidor local  | Desktop App |  2  |
-| #02    | Alta |EU, enquanto cliente, quero traduzir linguagem natural (inglês) em código SQL | Desktop App |  2  | 
-| #03    | Alta |EU, enquanto cliente, quero que o DataEase retorne as informações do banco de dados | Desktop App |  2  | 
-| #04    | Média |EU, enquanto cliente, quero uma interface contendo 3 principais itens, uma caixa para inglês, botão de enviar e dados do banco | Desktop App | 2  |
-| #05    | Média |EU, enquanto cliente, quero conseguir mudar meu banco de dados, que será consultado de acordo com a minha necessidade | Desktop App | 3 |
-| #06    | Média |EU, enquanto cliente, quero conseguir mudar meu modelo de linguagem (LM), de acordo com a minhha necesssidade | Desktop App| 4 |
+| #02    | Alta |EU, enquanto cliente, quero traduzir linguagem natural (inglês) em linguagem de máquina (SQL) e retornar as informações do banco de dados | Desktop App |  2  | 
+| #03    | Média |EU, enquanto cliente, quero uma interface contendo 3 principais itens, uma caixa para inglês, botão de enviar e dados do banco | Desktop App | 2  |
+| #04    | Média |EU, enquanto cliente, quero conseguir mudar meu banco de dados, que será consultado de acordo com a minha necessidade | Desktop App | 3 |
+| #05    | Média |EU, enquanto cliente, quero conseguir mudar meu modelo de linguagem (LM), de acordo com a minhha necesssidade | Desktop App| 4 |
+| #06    | Baixa |EU, enquanto cliente, quero poder utilizar inglês ou português para que seja feita a tradução para SQL | Desktop App| 4 |
 
 ## MVP
 <span id="mvp">
 
-![PHOENIX TEAM - 2SEM - DATAEASE](https://github.com/Phoenix-Team-Fatec/DataEase/assets/69217649/6169ea66-3a54-45be-af09-f715f152119b)
-
+![PHOENIX TEAM - 2SEM - DATAEASE](https://github.com/Phoenix-Team-Fatec/DataEase/assets/69217649/4e8c2cab-90da-46f9-a1b9-5f3828860d66)
 
 ## Backlog das Sprints
 
@@ -31,10 +28,6 @@
 |Backlog do produto| :white_check_mark: |
 |Backlog da sprint| :white_check_mark: |
 |Desenvolvimento de Protótipo no Figma| :white_check_mark: |
-|Estudo da biblioteca LangChain4J| :white_check_mark: |
-|Estudo da biblioteca Java Swing| :white_check_mark: |
-|Estudo do GGUF| :white_check_mark: |
-|Estudo do LMStudio| :white_check_mark: |
 
 ## 🛠️ Tecnologias
 
@@ -68,7 +61,7 @@ As seguintes ferramentas, linguagens, bibliotecas e tecnologias foram usadas na 
  
 * <p>
    <img align="left" title="vscode" height="30px" src="https://camo.githubusercontent.com/d1f8b9902e03d83c107b07a7194886dec1176f748afa6eeb425023ef0a4a6642/68747470733a2f2f6c6d73747564696f2e61692f6173736574732f616e64726f69642d6368726f6d652d353132783531322e706e67"/>
-   LM Studio - Local AI
+   LM Studio - Chat Bot
  </p>
  
 * <p>

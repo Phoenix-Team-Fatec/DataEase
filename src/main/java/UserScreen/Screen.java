@@ -1,11 +1,13 @@
 package UserScreen;
 
 import LangChain.LmConnection;
+import SQLConnection.InsertDB;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.List;
 
 public class Screen extends javax.swing.JFrame{
 
@@ -21,7 +23,6 @@ public class Screen extends javax.swing.JFrame{
     }
 
     private void ScreenComponents(){
-
         //Configurações Básicas
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("DataEase");
@@ -66,10 +67,20 @@ public class Screen extends javax.swing.JFrame{
         String entrada = caixa_entrada.getText();
         LmConnection prompt = new LmConnection();
         prompt.setContent(entrada);
-        caixa_resposta.setText(prompt.getPrompt());
+        // caixa_resposta.setText(prompt.getPrompt());
+        InsertDB consulta = new InsertDB();
+        consulta.setSql_prompt(prompt.getPrompt());
 
+        List<String> resultados = consulta.select();
+        // Concatenando os resultados em uma única String
+        StringBuilder sb = new StringBuilder();
+        for (String resultado : resultados) {
+            sb.append(resultado).append("\n"+" "); // Adicionando cada resultado, separando por nova linha
+        }
+        String resultadoConcatenado = sb.toString();
 
-
+        // Definindo a String concatenada como texto do Label
+        caixa_resposta.setText(resultadoConcatenado);
     }
 
 
