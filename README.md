@@ -1,4 +1,5 @@
-![DATAEASE](https://github.com/Phoenix-Team-Fatec/DataEase/assets/69217649/a3479615-3032-44f0-a6a2-38c5f6b3c01d)
+![dataeasegit](https://github.com/Phoenix-Team-Fatec/DataEase/assets/69217649/7b36309a-c0fa-4f39-8e69-e46377f52392)
+
 
 <span id="topo">
 <h1 align="center"> FATEC SJC - 2º Semestre ADS - DataEase </h1>
@@ -13,12 +14,12 @@
 | #04    | Média |EU, enquanto cliente, quero uma interface contendo 3 principais itens, uma caixa para inglês, botão de enviar e dados do banco | Desktop App | 2  |
 | #05    | Média |EU, enquanto cliente, quero conseguir mudar meu banco de dados, que será consultado de acordo com a minha necessidade | Desktop App | 3 |
 | #06    | Média |EU, enquanto cliente, quero conseguir mudar meu modelo de linguagem (LM), de acordo com a minhha necesssidade | Desktop App| 4 |
-| #07    | Baixa |EU, enquanto cliente, quero poder utilizar inglês ou português para que seja feita a tradução para SQL | Desktop App| 4 |
 
 ## MVP
 <span id="mvp">
 
-![PHOENIX TEAM - 2SEM - DATAEASE](https://github.com/Phoenix-Team-Fatec/DataEase/assets/69217649/4e8c2cab-90da-46f9-a1b9-5f3828860d66)
+![PHOENIX TEAM - 2SEM - DATAEASE](https://github.com/Phoenix-Team-Fatec/DataEase/assets/69217649/6169ea66-3a54-45be-af09-f715f152119b)
+
 
 ## Backlog das Sprints
 
