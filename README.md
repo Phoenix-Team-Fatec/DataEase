@@ -19,6 +19,11 @@
 
 ![PHOENIX TEAM - 2SEM - DATAEASE](https://github.com/Phoenix-Team-Fatec/DataEase/assets/69217649/6169ea66-3a54-45be-af09-f715f152119b)
 
+## Protótipo
+<span id="prototipo">
+
+![PHOENIX TEAM - 2SEM - DATAEASE](https://github.com/Phoenix-Team-Fatec/DataEase/assets/69217649/d2a026fb-c9be-4b0d-a7d2-64320dba06ca)
+
 ## Backlog das Sprints
 
 ### Sprint 1 - Metodologia, tecnologias e protótipo
