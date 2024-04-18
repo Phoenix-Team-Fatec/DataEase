@@ -7,6 +7,7 @@ import java.sql.SQLException;
 public class ConnectionDB {
     public Connection getConnection() {
 
+        //testando
         try {
             return DriverManager.getConnection("jdbc:mysql://localhost:3306/Estoque","root","1234");
         }
