@@ -8,9 +8,9 @@
 | Rank     | Prioridade |  US   | Item | Sprint | 
 | :----: | :----: | :----: | :----: | :----: |
 | #01    | Alta | EU, enquanto cliente, quero utilizar o DataEase para que eu não precise me preocupar com configurações de hardware do meu computador, sendo ele o servidor local  | Desktop App |  2  |
-| #02    | Alta |EU, enquanto cliente, quero traduzir linguagem natural (inglês) em código SQL | Desktop App |  2  | 
+| #02    | Alta |EU, enquanto cliente, quero traduzir linguagem natural em código SQL | Desktop App |  2  | 
 | #03    | Alta |EU, enquanto cliente, quero que o DataEase retorne as informações do banco de dados | Desktop App |  2  | 
-| #04    | Média |EU, enquanto cliente, quero uma interface contendo 3 principais itens, uma caixa para inglês, botão de enviar e dados do banco | Desktop App | 2  |
+| #04    | Média |EU, enquanto cliente, quero uma interface contendo 3 principais itens, uma caixa de input do texto do usuário, botão de enviar e dados do banco | Desktop App | 2  |
 | #05    | Média |EU, enquanto cliente, quero conseguir mudar meu banco de dados, que será consultado de acordo com a minha necessidade | Desktop App | 3 |
 | #06    | Média |EU, enquanto cliente, quero conseguir mudar meu modelo de linguagem (LM), de acordo com a minhha necesssidade | Desktop App| 4 |
 
