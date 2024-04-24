@@ -6,7 +6,7 @@ import java.util.List;
 
 public class InsertDB {
 
-    List<String> results = new ArrayList<>();
+        List<String> results = new ArrayList<>();
     private Connection connection;
 
     private String sql_prompt;

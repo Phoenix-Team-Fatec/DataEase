@@ -17,7 +17,7 @@ public class LmConnection  {
     public String getPrompt(){
         ChatLanguageModel model = LocalAiChatModel.builder()
                 .baseUrl("http://localhost:1234/v1")
-                .modelName("nsql")
+                .modelName("nsql llama 2")
                 .temperature(0.9)
                 .build();
 
