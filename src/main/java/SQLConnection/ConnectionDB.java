@@ -8,7 +8,7 @@ public class ConnectionDB {
     public Connection getConnection() {
 
         try {
-            return DriverManager.getConnection("jdbc:mysql://localhost/estoque","root","1234");
+            return DriverManager.getConnection("jdbc:mysql://localhost/aluno","root","fatec");
         }
         catch(SQLException excecao) {
             throw new RuntimeException(excecao);
@@ -59,7 +59,7 @@ public class ConnectionDB {
                     result.append("\n   ").append(columnName);
                 }
                 columns.close();
-                result.append("\n\n");
+                result.append("\n");
             }
             tables.close();
         } catch (SQLException excecao) {

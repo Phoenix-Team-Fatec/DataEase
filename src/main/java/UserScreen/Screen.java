@@ -13,9 +13,12 @@ public class Screen extends javax.swing.JFrame{
 
      JLabel caixa_resposta;
      JTextField caixa_entrada;
+     private JPanel painel_chat = new JPanel();
 
 
     JButton botao;
+
+    private JComboBox db_users = new JComboBox<>();
 
     public Screen(){
         ScreenComponents();
@@ -37,6 +40,7 @@ public class Screen extends javax.swing.JFrame{
         caixa_resposta.setForeground(new Color(255, 255,255));
         caixa_resposta.setBounds(37, 65, 776, 411); // Define a posição (x, y) e o tamanho (largura, altura)
         caixa_resposta.setBorder(new LineBorder(new Color(224, 170, 255)));
+
         add(caixa_resposta);
 
 
@@ -59,8 +63,12 @@ public class Screen extends javax.swing.JFrame{
 
         botao.addActionListener(this::sendText);
 
+        //db_users
+
 
     }
+
+
 
     private void sendText(ActionEvent actionEvent) {
         String entrada = caixa_entrada.getText();
