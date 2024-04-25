@@ -5,60 +5,45 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ConnectionDB {
+
+
+
     public Connection getConnection() {
 
         try {
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/Estoque","root","1234");
+            return DriverManager.getConnection("jdbc:mysql://localhost/aluno","root","fatec");
         }
         catch(SQLException excecao) {
             throw new RuntimeException(excecao);
         }
     }
 
-    public Map<String, String[]> architectureDB() {
-        Map<String, String[]> tablesColumnsMap = new HashMap<>();
+    public String architectureDB() {
+        StringBuilder result = new StringBuilder();
         try {
             Connection connection = getConnection();
-
             DatabaseMetaData metaData = connection.getMetaData();
-
             String databaseName = connection.getCatalog();
+            ResultSet tables = metaData.getTables(databaseName, null, null, new String[]{"TABLE"});
 
-            ResultSet tables = metaData.getTables(databaseName,null,null,new String[]{"TABLE"});
-
-            while (tables.next()){
+            while (tables.next()) {
                 String tableName = tables.getString("TABLE_NAME");
 
-                String[] columnsArray;
-
-                ResultSet columns = metaData.getColumns(databaseName,null,tableName,null);
-
-                int columCount = 0;
-                while (columns.next()){
-                    columCount++;
-                }
-
-                columns.beforeFirst();
-
-                columnsArray = new String[columCount];
-
-                int index = 0;
-                while (columns.next()){
+                ResultSet columns = metaData.getColumns(databaseName, null, tableName, null);
+                result.append("Tables: ").append(tableName).append("\nColumns: ");
+                while (columns.next()) {
                     String columnName = columns.getString("COLUMN_NAME");
-                    columnsArray[index] = columnName;
-                    index++;
+                    result.append("\n   ").append(columnName);
                 }
                 columns.close();
-
-                tablesColumnsMap.put(tableName,columnsArray);
+                result.append("\n\n");
             }
             tables.close();
             connection.close();
-        }catch (SQLException excecao){
-            throw new RuntimeException();
+        } catch (SQLException excecao) {
+            throw new RuntimeException(excecao);
         }
-        return tablesColumnsMap;
+        return result.toString();
     }
-
 
 }
