@@ -39,6 +39,16 @@
 |Estudo do GGUF| :white_check_mark: |
 |Estudo do LMStudio| :white_check_mark: |
 
+### Sprint 2 - Resposta para o usuário e tela
+
+| ITEM   | STATUS |
+| :----: | :----: |
+|UI com JavaSwing| :white_check_mark: |
+|Conexão com a LM| :white_check_mark: |
+|Conexão com o Banco de Dados| :white_check_mark: |
+|Retorno para o usuário| :white_check_mark: |
+|Otimização do código| :white_check_mark: |
+
 ## 🛠️ Tecnologias
 
 As seguintes ferramentas, linguagens, bibliotecas e tecnologias foram usadas na construção do projeto:
