@@ -2,7 +2,6 @@ package UserScreen;
 
 import LangChain.LmConnection;
 import SQLConnection.InsertDB;
-
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -67,20 +66,19 @@ public class Screen extends javax.swing.JFrame{
         String entrada = caixa_entrada.getText();
         LmConnection prompt = new LmConnection();
         prompt.setContent(entrada);
+
         // caixa_resposta.setText(prompt.getPrompt());
+
         InsertDB consulta = new InsertDB();
         consulta.setSql_prompt(prompt.getPrompt());
 
         List<String> resultados = consulta.select();
+
         // Concatenando os resultados em uma única String
-        StringBuilder sb = new StringBuilder();
-        for (String resultado : resultados) {
-            sb.append(resultado).append("\n"+" "); // Adicionando cada resultado, separando por nova linha
-        }
-        String resultadoConcatenado = sb.toString();
+        String resultadoFormatado = consulta.resultadoConcatenado(resultados);
 
         // Definindo a String concatenada como texto do Label
-        caixa_resposta.setText(resultadoConcatenado);
+        caixa_resposta.setText(resultadoFormatado);
     }
 
 

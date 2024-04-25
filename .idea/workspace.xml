@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a05e549b-0fce-413d-bde7-15d571c5288e" name="Changes" comment="teste de mudança de icone">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LangChain/LmConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LangChain/LmConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQLConnection/ConnectionDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQLConnection/ConnectionDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQLConnection/InsertDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQLConnection/InsertDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserScreen/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserScreen/Screen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/LangChain/LmConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LangChain/LmConnection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/SQLConnection/ConnectionDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SQLConnection/ConnectionDB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/SQLConnection/InsertDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SQLConnection/InsertDB.class" afterDir="false" />
@@ -69,6 +69,9 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2fH5F9SuBpgImuLLu642roF1PdP" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -80,11 +83,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "Desenvolver",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/samue/Downloads/mysql-connector-j-8.3.0/mysql-connector-j-8.3.0/mysql-connector-j-8.3.0.jar",
+    "last_opened_file_path": "C:/Users/Manhã/Downloads/mysql-connector-j-8.2.0/mysql-connector-j-8.2.0/mysql-connector-j-8.2.0.jar",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>

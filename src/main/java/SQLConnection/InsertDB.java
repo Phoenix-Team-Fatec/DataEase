@@ -48,6 +48,7 @@ public class InsertDB {
                 }
             }
 
+
             rs.close();
             stmt.close();
         }
@@ -56,6 +57,21 @@ public class InsertDB {
             new RuntimeException(u);
         }
         return results;
+    }
+    public String resultadoConcatenado(List<String> resultados){
+        StringBuilder sb = new StringBuilder();
+        sb.append("<html><head><style>");
+        sb.append("table { border-collapse: collapse; width: 100%; }");
+        sb.append("th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }");
+        sb.append("th { background-color: #f2f2f2; }");
+        sb.append("</style></head><body><table>");
+
+        for (String resultado : resultados) {
+            sb.append("<tr><td>").append(resultado).append("</td></tr>");
+        }
+
+        sb.append("</table></body></html>");
+        return sb.toString();
     }
 
 }
