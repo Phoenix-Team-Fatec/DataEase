@@ -11,21 +11,16 @@ import java.awt.event.ActionListener;
 public class Screen extends javax.swing.JFrame implements ActionListener {
 
 
-     JLabel caixa_resposta;
-     JTextField caixa_entrada;
-     private JPanel painel_chat = new JPanel();
-
-     private JPanel painel_cadastro = new JPanel();
-
-     JLabel label_usuario, label_senha, label_bd = new JLabel();
-     JTextField campo_usuario = new JTextField();
-     JTextField campo_bd = new JTextField();
-     JPasswordField campo_senha = new JPasswordField();
-
-     JButton botao_cadastrar, botao_entrar, botao_cadastrar_bd = new JButton();
-
+    JLabel caixa_resposta;
+    JTextField caixa_entrada;
+    private JPanel painel_chat = new JPanel();
+    private JPanel painel_cadastro = new JPanel();
+    JLabel label_usuario, label_senha, label_bd = new JLabel();
+    JTextField campo_usuario = new JTextField();
+    JTextField campo_bd = new JTextField();
+    JPasswordField campo_senha = new JPasswordField();
+    JButton botao_cadastrar, botao_entrar, botao_cadastrar_bd = new JButton();
     JButton botao;
-
     private JComboBox db_users = new JComboBox<>();
 
     public Screen(){
@@ -54,7 +49,7 @@ public class Screen extends javax.swing.JFrame implements ActionListener {
         //Painel Cadastro
         painel_cadastro.setSize(850, 600);
         painel_cadastro.setVisible(true);
-        painel_cadastro.setLayout(null);
+        painel_cadastro.setLayout(new GridBagLayout()); // Mudança aqui
         painel_cadastro.setBackground(new Color(44, 10, 75));
         add(painel_cadastro);
 
@@ -72,20 +67,17 @@ public class Screen extends javax.swing.JFrame implements ActionListener {
         caixa_entrada.setForeground(Color.white);
         caixa_entrada.setBorder(new LineBorder(new Color(224, 170, 255)));
         caixa_entrada.setVisible(true);
-        //add(caixa_entrada);
 
         //Botao_enviar_prompt
         botao = new JButton("OK");
         botao.setBounds(737, 495, 76, 32); // Define a posição (x, y) e o tamanho (largura, altura)
         botao.setBorder(new LineBorder(new Color(224, 170, 255)));
         botao.setBackground(new Color(157,78,221));
-
         botao.addActionListener(this::sendText);
 
         painel_chat.add(caixa_resposta);
         painel_chat.add(caixa_entrada);
         painel_chat.add(botao);
-
 
         //Configurações tela cadastro;
         GridBagConstraints gcb = new GridBagConstraints();
@@ -106,7 +98,7 @@ public class Screen extends javax.swing.JFrame implements ActionListener {
         gcb.anchor = GridBagConstraints.LINE_START;
         painel_cadastro.add(campo_usuario, gcb);
 
-//Senha
+        //Senha
         label_senha = new JLabel("Senha:");
         gcb.gridx = 0;
         gcb.gridy = 1;
@@ -120,7 +112,7 @@ public class Screen extends javax.swing.JFrame implements ActionListener {
         gcb.anchor = GridBagConstraints.LINE_START;
         painel_cadastro.add(campo_senha, gcb);
 
-//Banco de dados
+        //Banco de dados
         label_bd = new JLabel("Banco de dados:");
         gcb.gridx = 0;
         gcb.gridy = 2;
@@ -134,7 +126,7 @@ public class Screen extends javax.swing.JFrame implements ActionListener {
         gcb.anchor = GridBagConstraints.LINE_START;
         painel_cadastro.add(campo_bd, gcb);
 
-//Botão cadastrar
+        //Botão cadastrar
         botao_cadastrar = new JButton("Cadastrar");
         botao_cadastrar.addActionListener(this);
         gcb.gridx = 0;
@@ -143,86 +135,13 @@ public class Screen extends javax.swing.JFrame implements ActionListener {
         gcb.anchor = GridBagConstraints.CENTER;
         painel_cadastro.add(botao_cadastrar, gcb);
 
-//Botão entrar
+        //Botão entrar
         botao_entrar = new JButton("Entrar");
         botao_entrar.addActionListener(this);
         gcb.gridx = 1;
         gcb.gridy = 3;
         gcb.anchor = GridBagConstraints.CENTER;
         painel_cadastro.add(botao_entrar, gcb);
-
-
-        //Usuário
-        /*label_usuario.setText("Usuário");
-        gcb.gridx = 0;
-        gcb.gridy = 0;
-        gcb.anchor = GridBagConstraints.LINE_END;
-        painel_cadastro.add(label_usuario, gcb);
-
-        campo_usuario.setPreferredSize(new Dimension(200, 30));
-        gcb.gridx = 1;
-        gcb.gridy = 0;
-        gcb.anchor = GridBagConstraints.LINE_START;
-        painel_cadastro.add(campo_usuario, gcb);
-
-        //Senha
-        label_senha.setText("Senha:");
-        gcb.gridx = 0;
-        gcb.gridy = 1;
-        gcb.anchor = GridBagConstraints.LINE_END;
-        painel_cadastro.add(label_usuario, gcb);
-
-        campo_senha.setPreferredSize(new Dimension(200,30));
-        gcb.gridx = 1;
-        gcb.gridy = 1;
-        gcb.anchor = GridBagConstraints.LINE_START;
-        painel_cadastro.add(campo_senha, gcb);
-
-        //Banco de dados
-        label_bd.setText("Banco de dados:");
-        gcb.gridx = 0;
-        gcb.gridy = 2;
-        gcb.anchor = GridBagConstraints.LINE_END;
-        painel_cadastro.add(label_bd, gcb);
-
-        campo_bd.setPreferredSize(new Dimension(200,30));
-        gcb.gridx = 1;
-        gcb.gridy = 2;
-        gcb.anchor = GridBagConstraints.LINE_START;
-        painel_cadastro.add(campo_bd, gcb);
-
-        //Linha pra separar os campos dos botões
-        gcb.gridwidth = 2;
-        gcb.gridx = 0;
-        gcb.gridy = 2;
-        painel_cadastro.add(new JLabel(), gcb);
-
-        //Botão cadastrar
-        botao_cadastrar.setText("Cadastrar");
-        botao_cadastrar.addActionListener(this);
-        gcb.gridx = 0;
-        gcb.gridy = 3;
-        gcb.gridwidth = 1;
-        gcb.anchor = GridBagConstraints.CENTER;
-        painel_cadastro.add(botao_cadastrar, gcb);
-
-        botao_entrar.setText("Entrar");
-        botao_entrar.addActionListener(this);
-        gcb.gridx = 1;
-        gcb.gridy = 3;
-        gcb.anchor = GridBagConstraints.CENTER;
-        painel_cadastro.add(botao_entrar, gcb);
-
-        painel_cadastro.add(label_usuario);
-        painel_cadastro.add(campo_usuario);
-        painel_cadastro.add(label_senha);
-        painel_cadastro.add(campo_senha);
-        painel_cadastro.add(label_bd);
-        painel_cadastro.add(campo_bd);
-        painel_cadastro.add(botao_entrar);
-        painel_cadastro.add(botao_cadastrar); */
-
-        //db_users
     }
 
 
