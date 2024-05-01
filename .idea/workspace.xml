@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a05e549b-0fce-413d-bde7-15d571c5288e" name="Changes" comment="teste de mudança de icone">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LangChain/LmConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LangChain/LmConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQLConnection/ConnectionDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQLConnection/ConnectionDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQLConnection/InsertDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQLConnection/InsertDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserScreen/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserScreen/Screen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LangChain/LmConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LangChain/LmConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SQLConnection/ConnectionDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SQLConnection/ConnectionDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SQLConnection/InsertDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SQLConnection/InsertDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/UserScreen/Screen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserScreen/Screen.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/Desenvolver" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;samekmd&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Phoenix-Team-Fatec/DataEase.git&quot;,
+    &quot;accountId&quot;: &quot;0e1072f3-e365-41dc-8401-8b4e7e11a519&quot;
+  }
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2fH5F9SuBpgImuLLu642roF1PdP" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Screen.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/samue/Downloads/mysql-connector-j-8.3.0/mysql-connector-j-8.3.0/mysql-connector-j-8.3.0.jar",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a05e549b-0fce-413d-bde7-15d571c5288e" name="Changes" comment="" />
+      <created>1713445057693</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713445057693</updated>
+      <workItem from="1713446271109" duration="14000" />
+    </task>
+    <task id="LOCAL-00001" summary="teste de mudança de icone">
+      <option name="closed" value="true" />
+      <created>1713445251993</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713445251993</updated>
+    </task>
+    <task id="LOCAL-00002" summary="teste de mudança de icone">
+      <option name="closed" value="true" />
+      <created>1713445763362</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713445763362</updated>
+    </task>
+    <task id="LOCAL-00003" summary="teste de mudança de icone">
+      <option name="closed" value="true" />
+      <created>1713445884024</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713445884024</updated>
+    </task>
+    <task id="LOCAL-00004" summary="teste de mudança de icone">
+      <option name="closed" value="true" />
+      <created>1713445929099</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713445929099</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="teste de mudança de icone" />
+    <option name="LAST_COMMIT_MESSAGE" value="teste de mudança de icone" />
+  </component>
+</project>
