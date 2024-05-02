@@ -117,6 +117,9 @@ public class TelaCadastro extends JFrame implements ActionListener {
                         JOptionPane.showMessageDialog(this, "Novo usuário cadastrado com sucesso!");
                         campoNovoUsuario.setText("");
                         campoNovaSenha.setText(""); // Limpa o campo corretamente
+                        TelaLogin telaLogin = new TelaLogin();
+                        telaLogin.setVisible(true);
+                        this.setVisible(false);
                     } else {
                         JOptionPane.showMessageDialog(this, "Falha ao cadastrar novo usuário");
                     }

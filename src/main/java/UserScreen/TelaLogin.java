@@ -126,6 +126,7 @@ public class TelaLogin extends JFrame implements ActionListener {
 
             if (usuarioCadastrado) {
                 JOptionPane.showMessageDialog(this, "Usuário " + usuario + " logado com sucesso!");
+                abrirTelaChat();
             } else {
                 int opcao = JOptionPane.showConfirmDialog(this, "Usuário não encontrado. Deseja se cadastrar?", "Usuário não encontrado", JOptionPane.YES_NO_OPTION);
                 if (opcao == JOptionPane.YES_OPTION) {
@@ -134,6 +135,13 @@ public class TelaLogin extends JFrame implements ActionListener {
             }
         }
     }
+
+    public void abrirTelaChat(){
+        TelaChat telaChat = new TelaChat();
+        telaChat.setVisible(true);
+        this.setVisible(false);
+    }
+
     private boolean verificarUsuario(String usuario, String senha){
         try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/dataease", "root", "1234")){
             String sql = "SELECT * FROM usuarios WHERE nome = ? AND senha = ?";
