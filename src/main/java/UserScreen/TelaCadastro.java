@@ -1,118 +1,137 @@
 package UserScreen;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class TelaCadastro extends JFrame implements ActionListener {
-    private JLabel labelUsuario, labelSenha, labelBd;
-    private JTextField campoUsuario;
-    private JPasswordField campoSenha;
-    private JTextField campodBd;
-    private JButton botaoCadastrar, botaoEntrar, botaoCadastrarBd;
+    private JLabel labelNovoUsuario, labelNovaSenha;
+    private JTextField campoNovoUsuario;
+    private JPasswordField campoNovaSenha;
+    private JButton botaoCadastrarNovo, botaoVoltar;
 
-    public TelaCadastro(){
-        setTitle("Login");
-        setSize(400,450);
+    public TelaCadastro() {
+        setTitle("Cadastro - DataEase");
+        setSize(850, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        Color corFundo = new Color(240,240,240);
-        Color corBotao = new Color(51,153,255);
+        Color corFundo = new Color(60, 9, 108);
+        Color corBotao = new Color(51, 153, 255);
 
-        JPanel painelPrincipal = new JPanel(new GridBagLayout());
-        painelPrincipal.setBackground(corFundo);
-        GridBagConstraints gcb = new GridBagConstraints();
-        gcb.insets = new Insets(10,10,10,10);
-        gcb.fill = GridBagConstraints.HORIZONTAL;
+        JPanel painelCadastro = new JPanel(new GridBagLayout());
+        painelCadastro.setBackground(corFundo);
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.fill = GridBagConstraints.HORIZONTAL;
 
         Font fonte = new Font("Arial", Font.PLAIN, 14);
 
-        labelUsuario = new JLabel("Usuário:");
-        labelUsuario.setFont(fonte);
-        gcb.gridx = 0;
-        gcb.gridy = 0;
-        gcb.anchor = GridBagConstraints.LINE_END;
-        painelPrincipal.add(labelUsuario, gcb);
+        labelNovoUsuario = new JLabel("Novo Usuário:");
+        labelNovoUsuario.setFont(fonte);
+        labelNovoUsuario.setForeground(Color.WHITE);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.LINE_END;
+        painelCadastro.add(labelNovoUsuario, gbc);
 
-        campoUsuario = new JTextField();
-        campoUsuario.setPreferredSize(new Dimension(200,30));
-        campoUsuario.setFont(fonte);
-        gcb.gridx = 1;
-        gcb.gridy = 0;
-        gcb.anchor = GridBagConstraints.LINE_START;
-        painelPrincipal.add(campoUsuario, gcb);
+        campoNovoUsuario = new JTextField();
+        campoNovoUsuario.setPreferredSize(new Dimension(200, 30));
+        campoNovoUsuario.setFont(fonte);
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        painelCadastro.add(campoNovoUsuario, gbc);
 
-        labelSenha = new JLabel("Senha:");
-        labelSenha.setFont(fonte);
-        gcb.gridx = 0;
-        gcb.gridy = 1;
-        gcb.anchor = GridBagConstraints.LINE_END;
-        painelPrincipal.add(labelSenha, gcb);
+        labelNovaSenha = new JLabel("Nova Senha:");
+        labelNovaSenha.setFont(fonte);
+        labelNovaSenha.setForeground(Color.WHITE);
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.anchor = GridBagConstraints.LINE_END;
+        painelCadastro.add(labelNovaSenha, gbc);
 
-        campoSenha = new JPasswordField();
-        campoSenha.setPreferredSize(new Dimension(200, 30));
-        campoSenha.setFont(fonte);
-        gcb.gridx = 1;
-        gcb.gridy = 1;
-        gcb.anchor = GridBagConstraints.LINE_START;
-        painelPrincipal.add(campoSenha, gcb);
-
-        labelBd = new JLabel("Banco de dados:");
-        labelBd.setFont(fonte);
-        gcb.gridx = 0;
-        gcb.gridy = 2;
-        gcb.anchor = GridBagConstraints.LINE_END;
-        painelPrincipal.add(labelBd, gcb);
-
-        campodBd = new JTextField();
-        campodBd.setPreferredSize(new Dimension(200, 30));
-        campodBd.setFont(fonte);
-        gcb.gridx = 1;
-        gcb.gridy = 2;
-        gcb.anchor = GridBagConstraints.LINE_START;
-        painelPrincipal.add(campodBd, gcb);
+        campoNovaSenha = new JPasswordField();
+        campoNovaSenha.setPreferredSize(new Dimension(200, 30));
+        campoNovaSenha.setFont(fonte);
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbc.anchor = GridBagConstraints.LINE_START;
+        painelCadastro.add(campoNovaSenha, gbc);
 
         //Linha vazia para separar os campos dos botões;
-        gcb.gridwidth = 2;
-        gcb.gridx = 0;
-        gcb.gridy = 2;
-        painelPrincipal.add(new JLabel(), gcb);
+        gbc.gridwidth = 2;
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        painelCadastro.add(new JLabel(), gbc);
 
-        botaoCadastrar = new JButton("Cadastrar");
-        botaoCadastrar.addActionListener(this);
-        botaoCadastrar.setBackground(corBotao);
-        botaoCadastrar.setForeground(Color.WHITE);
-        botaoCadastrar.setFont(fonte);
-        gcb.gridx = 0;
-        gcb.gridy = 3;
-        gcb.gridwidth = 1;
-        gcb.anchor = GridBagConstraints.CENTER;
-        painelPrincipal.add(botaoCadastrar, gcb);
+        botaoCadastrarNovo = new JButton("Cadastrar");
+        botaoCadastrarNovo.addActionListener(this);
+        botaoCadastrarNovo.setBackground(corBotao);
+        botaoCadastrarNovo.setForeground(Color.WHITE);
+        botaoCadastrarNovo.setFont(fonte);
+        botaoCadastrarNovo.setPreferredSize(new Dimension(100,25));
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        gbc.anchor = GridBagConstraints.CENTER;
+        botaoCadastrarNovo.setBackground(new Color(157,78,221));
+        botaoCadastrarNovo.setBorder(new LineBorder(new Color(224,170,255)));
+        painelCadastro.add(botaoCadastrarNovo, gbc);
 
-        botaoEntrar = new JButton("Entrar");
-        botaoEntrar.addActionListener(this);;
-        botaoEntrar.setBackground(corBotao);
-        botaoEntrar.setForeground(Color.WHITE);
-        botaoEntrar.setFont(fonte);
-        gcb.gridx = 1;
-        gcb.gridy = 3;
-        gcb.anchor = GridBagConstraints.CENTER;
-        painelPrincipal.add(botaoEntrar, gcb);
+        botaoVoltar = new JButton("Voltar");
+        botaoVoltar.addActionListener(this);
+        botaoVoltar.setBackground(corBotao);
+        botaoVoltar.setForeground(Color.WHITE);
+        botaoVoltar.setFont(fonte);
+        botaoVoltar.setPreferredSize(new Dimension(100,25));
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.CENTER;
+        botaoVoltar.setBackground(new Color(157,78,221));
+        botaoVoltar.setBorder(new LineBorder(new Color(224,170,255)));
+        painelCadastro.add(botaoVoltar, gbc);
 
-        add(painelPrincipal);
+        add(painelCadastro);
     }
 
-    public void actionPerformed(ActionEvent e){
-        if(e.getSource() == botaoCadastrar){
-            JOptionPane.showMessageDialog(this, "Cadastro com sucesso!");
-        }else if (e.getSource() == botaoEntrar){
-            String usuario = campoUsuario.getText();
-            String senha = new String(campoSenha.getPassword());
-            JOptionPane.showMessageDialog(this, "Usuário " + usuario + "\nSenha: " + senha);
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == botaoCadastrarNovo) {
+            String novoUsuario = campoNovoUsuario.getText();
+            String novaSenha = new String(campoNovaSenha.getPassword());
+
+            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/usuarios", "root", "1234")) {
+                String sql = "INSERT INTO usuario (nome, senha) VALUES (?, ?)";
+                try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                    stmt.setString(1, novoUsuario);
+                    stmt.setString(2, novaSenha);
+
+                    int rowsAffected = stmt.executeUpdate();
+                    if (rowsAffected > 0) {
+                        JOptionPane.showMessageDialog(this, "Novo usuário cadastrado com sucesso!");
+                        campoNovoUsuario.setText("");
+                        campoNovaSenha.setText(""); // Limpa o campo corretamente
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Falha ao cadastrar novo usuário");
+                    }
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Erro ao conectar ao banco de dados!");
+            }
+        } else if (e.getSource() == botaoVoltar) {
+            TelaLogin telaLogin = new TelaLogin();
+            telaLogin.setVisible(true);
+            this.setVisible(false);
         }
     }
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
@@ -122,5 +141,4 @@ public class TelaCadastro extends JFrame implements ActionListener {
             }
         });
     }
-
 }
