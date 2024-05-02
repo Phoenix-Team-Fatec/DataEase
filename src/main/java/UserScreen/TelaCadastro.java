@@ -106,8 +106,8 @@ public class TelaCadastro extends JFrame implements ActionListener {
             String novoUsuario = campoNovoUsuario.getText();
             String novaSenha = new String(campoNovaSenha.getPassword());
 
-            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/usuarios", "root", "1234")) {
-                String sql = "INSERT INTO usuario (nome, senha) VALUES (?, ?)";
+            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/dataease", "root", "1234")) {
+                String sql = "INSERT INTO usuarios (nome, senha) VALUES (?, ?)";
                 try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                     stmt.setString(1, novoUsuario);
                     stmt.setString(2, novaSenha);
