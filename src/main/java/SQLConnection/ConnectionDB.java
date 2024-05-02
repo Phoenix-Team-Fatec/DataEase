@@ -15,33 +15,37 @@ public class ConnectionDB {
         }
     }
 
+    public ConnectionDB() {
+        this.getConnection();
+    }
+
     /*public String architectureDB() {
-        StringBuilder result = new StringBuilder();
-        try {
-            Connection connection = getConnection();
-            DatabaseMetaData metaData = connection.getMetaData();
-            String databaseName = connection.getCatalog();
-            ResultSet tables = metaData.getTables(databaseName, null, null, new String[]{"TABLE"});
+            StringBuilder result = new StringBuilder();
+            try {
+                Connection connection = getConnection();
+                DatabaseMetaData metaData = connection.getMetaData();
+                String databaseName = connection.getCatalog();
+                ResultSet tables = metaData.getTables(databaseName, null, null, new String[]{"TABLE"});
 
-            while (tables.next()) {
-                String tableName = tables.getString("TABLE_NAME");
+                while (tables.next()) {
+                    String tableName = tables.getString("TABLE_NAME");
 
-                ResultSet columns = metaData.getColumns(databaseName, null, tableName, null);
-                result.append("Tables: ").append(tableName).append("\nColumns: ");
-                while (columns.next()) {
-                    String columnName = columns.getString("COLUMN_NAME");
-                    result.append("\n   ").append(columnName);
+                    ResultSet columns = metaData.getColumns(databaseName, null, tableName, null);
+                    result.append("Tables: ").append(tableName).append("\nColumns: ");
+                    while (columns.next()) {
+                        String columnName = columns.getString("COLUMN_NAME");
+                        result.append("\n   ").append(columnName);
+                    }
+                    columns.close();
+                    result.append("\n\n");
                 }
-                columns.close();
-                result.append("\n\n");
+                tables.close();
+                connection.close();
+            } catch (SQLException excecao) {
+                throw new RuntimeException(excecao);
             }
-            tables.close();
-            connection.close();
-        } catch (SQLException excecao) {
-            throw new RuntimeException(excecao);
-        }
-        return result.toString();
-    }*/
+            return result.toString();
+        }*/
     public String architectureDB() {
         StringBuilder result = new StringBuilder();
         try (Connection connection = getConnection()) {

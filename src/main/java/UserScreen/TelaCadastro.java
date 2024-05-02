@@ -1,5 +1,7 @@
 package UserScreen;
 
+import SQLConnection.Cadastros;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -106,7 +108,10 @@ public class TelaCadastro extends JFrame implements ActionListener {
             String novoUsuario = campoNovoUsuario.getText();
             String novaSenha = new String(campoNovaSenha.getPassword());
 
-            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/dataease", "root", "1234")) {
+            Cadastros cadastros = new Cadastros();
+            cadastros.userCadastro(novoUsuario, novaSenha);
+
+            /*try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/dataease", "root", "1234")) {
                 String sql = "INSERT INTO usuarios (nome, senha) VALUES (?, ?)";
                 try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                     stmt.setString(1, novoUsuario);
@@ -115,8 +120,6 @@ public class TelaCadastro extends JFrame implements ActionListener {
                     int rowsAffected = stmt.executeUpdate();
                     if (rowsAffected > 0) {
                         JOptionPane.showMessageDialog(this, "Novo usuário cadastrado com sucesso!");
-                        campoNovoUsuario.setText("");
-                        campoNovaSenha.setText(""); // Limpa o campo corretamente
                         TelaLogin telaLogin = new TelaLogin();
                         telaLogin.setVisible(true);
                         this.setVisible(false);
@@ -124,10 +127,12 @@ public class TelaCadastro extends JFrame implements ActionListener {
                         JOptionPane.showMessageDialog(this, "Falha ao cadastrar novo usuário");
                     }
                 }
+                campoNovoUsuario.setText("");
+                campoNovaSenha.setText(""); // Limpa o campo corretamente
             } catch (SQLException ex) {
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(this, "Erro ao conectar ao banco de dados!");
-            }
+            }*/
         } else if (e.getSource() == botaoVoltar) {
             TelaLogin telaLogin = new TelaLogin();
             telaLogin.setVisible(true);
