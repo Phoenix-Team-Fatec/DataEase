@@ -7,6 +7,7 @@
     <list default="true" id="a05e549b-0fce-413d-bde7-15d571c5288e" name="Changes" comment="teste de mudança de icone">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/java/SQLConnection/ConnectionDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQLConnection/ConnectionDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UserScreen/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserScreen/TelaChat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UserScreen/TelaCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserScreen/TelaCadastro.java" afterDir="false" />
@@ -17,6 +18,8 @@
       <change beforePath="$PROJECT_DIR$/target/classes/UserScreen/Screen.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/UserScreen/TelaCadastro.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserScreen/TelaCadastro.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/UserScreen/TelaLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserScreen/TelaLogin.class" afterDir="false" />
+=======
+>>>>>>> cf8abb252de50359ab9437884c7d2ce52f2cebe0
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
