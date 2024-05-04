@@ -1,5 +1,7 @@
 package UserScreen;
 
+import SQLConnection.Cadastros;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,6 +12,7 @@ public class telaDB extends JFrame {
     JTextField caixa_DB = new JTextField();
 
     JButton botao_cadastro_db = new JButton();
+    private JButton botao_voltar = new JButton("Voltar");
 
     public telaDB(){
 
@@ -43,9 +46,21 @@ public class telaDB extends JFrame {
         botao_cadastro_db.addActionListener(this::sendDB);
         add(botao_cadastro_db);
 
+        //JButton "Voltar"
+        botao_voltar.setBounds(100,350,100,30);
+        add(botao_voltar);
+        botao_voltar.addActionListener(this::voltar);
+
+    }
+
+    private void voltar(ActionEvent actionEvent) {
+        this.setVisible(false);
     }
 
     private void sendDB(ActionEvent actionEvent) {
+        String db_name = caixa_DB.getText();
+        Cadastros database = new Cadastros();
+        database.dataBaseCadastro(db_name,1);
 
     }
 

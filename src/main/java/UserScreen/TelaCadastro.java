@@ -109,7 +109,7 @@ public class TelaCadastro extends JFrame implements ActionListener {
             String novaSenha = new String(campoNovaSenha.getPassword());
 
             Cadastros cadastros = new Cadastros();
-            cadastros.userCadastro(novoUsuario, novaSenha);
+            cadastros.userCadastro(novoUsuario, novaSenha,1);
 
             campoNovoUsuario.setText("");
             campoNovaSenha.setText(""); // Limpa o campo corretamente

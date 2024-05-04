@@ -63,7 +63,8 @@ public class TelaLogin extends JFrame implements ActionListener {
         gcb.anchor = GridBagConstraints.LINE_START;
         painelPrincipal.add(campoSenha, gcb);
 
-        labelBd = new JLabel("Banco de dados:");
+        /*labelBd = new JLabel("Banco de dados:");
+        labelBd.setForeground(Color.white);
         labelBd.setFont(fonte);
         gcb.gridx = 0;
         gcb.gridy = 2;
@@ -76,7 +77,7 @@ public class TelaLogin extends JFrame implements ActionListener {
         gcb.gridx = 1;
         gcb.gridy = 2;
         gcb.anchor = GridBagConstraints.LINE_START;
-        painelPrincipal.add(campodBd, gcb);
+        painelPrincipal.add(campodBd, gcb);*/
 
         //Linha vazia para separar os campos dos botões;
         gcb.gridwidth = 2;

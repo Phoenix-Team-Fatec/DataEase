@@ -8,12 +8,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.List;
 import java.awt.event.ActionListener;
-public class TelaChat extends javax.swing.JFrame implements ActionListener {
+public class  TelaChat extends javax.swing.JFrame implements ActionListener {
 
 
-    JLabel caixa_resposta;
-    JTextField caixa_entrada;
+    private JLabel caixa_resposta;
+    private JTextField caixa_entrada;
     private JPanel painel_chat = new JPanel();
+    private JComboBox usersBD = new JComboBox<>();
+    private JButton botao_add_bd = new JButton("+");
+    private JLabel texto_Adiciona_bd = new JLabel("Novo Banco de dados");
 
     JButton botao_enviar;
     private JComboBox db_users = new JComboBox<>();
@@ -67,8 +70,24 @@ public class TelaChat extends javax.swing.JFrame implements ActionListener {
         painel_chat.add(caixa_entrada);
         painel_chat.add(botao_enviar);
 
+
+        //Dropbox para seleção do banco de dados do usuário e Botão para adição do mesmo
+        painel_chat.add(usersBD);
+        usersBD.setBounds(37,35,150,20);
+
+        painel_chat.add(texto_Adiciona_bd);
+        texto_Adiciona_bd.setBounds(200,35,150,20);
+        texto_Adiciona_bd.setForeground(Color.white);
+
+        painel_chat.add(botao_add_bd);
+        botao_add_bd.setBounds(340,39,50,15);
+        botao_add_bd.addActionListener(this::changeToTelaDB);
+
     }
 
+    private void changeToTelaDB(ActionEvent actionEvent) {
+        new telaDB();
+    }
 
 
     private void sendText(ActionEvent actionEvent) {
