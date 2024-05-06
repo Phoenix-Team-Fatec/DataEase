@@ -103,13 +103,14 @@ public class TelaCadastro extends JFrame implements ActionListener {
         add(painelCadastro);
     }
 
+    // Cadastra usuário
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == botaoCadastrarNovo) {
             String novoUsuario = campoNovoUsuario.getText();
             String novaSenha = new String(campoNovaSenha.getPassword());
 
             Cadastros cadastros = new Cadastros();
-            cadastros.userCadastro(novoUsuario, novaSenha,1);
+            cadastros.userCadastro(novoUsuario, novaSenha);
 
             campoNovoUsuario.setText("");
             campoNovaSenha.setText(""); // Limpa o campo corretamente

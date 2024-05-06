@@ -21,7 +21,7 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
     JButton botao_enviar;
     private JComboBox db_users = new JComboBox<>();
 
-    public TelaChat(){
+    public TelaChat(String usuario){
         ScreenComponents();
     }
 
@@ -85,11 +85,12 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
 
     }
 
+    // Abre a tela de cadastro de DB
     private void changeToTelaDB(ActionEvent actionEvent) {
         new telaDB();
     }
 
-
+    // Envia o input do usuário para ConnectionDB
     private void sendText(ActionEvent actionEvent) {
         String entrada = caixa_entrada.getText();
         LmConnection prompt = new LmConnection();
@@ -108,14 +109,6 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         // Definindo a String concatenada como texto do Label
         caixa_resposta.setText(resultadoFormatado);
     }
-
-
-
-    public static void main(String[] args) {
-
-        SwingUtilities.invokeLater(TelaChat::new);
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
 

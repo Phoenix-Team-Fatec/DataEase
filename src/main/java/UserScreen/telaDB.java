@@ -53,17 +53,18 @@ public class telaDB extends JFrame {
 
     }
 
+    // Volta tela do chat
     private void voltar(ActionEvent actionEvent) {
         this.setVisible(false);
     }
 
+    // Cadastra o DB
     private void sendDB(ActionEvent actionEvent) {
         String db_name = caixa_DB.getText();
         Cadastros database = new Cadastros();
         database.dataBaseCadastro(db_name,1);
 
     }
-
 
     public static void main(String[] args) {
         new telaDB();

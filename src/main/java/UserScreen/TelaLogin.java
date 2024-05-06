@@ -1,5 +1,7 @@
 package UserScreen;
 
+import SQLConnection.Cadastros;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -138,7 +140,7 @@ public class TelaLogin extends JFrame implements ActionListener {
     }
 
     public void abrirTelaChat(){
-        TelaChat telaChat = new TelaChat();
+        TelaChat telaChat = new TelaChat(campoUsuario.getText());
         telaChat.setVisible(true);
         this.setVisible(false);
     }
@@ -149,6 +151,8 @@ public class TelaLogin extends JFrame implements ActionListener {
             try(PreparedStatement stmt = conn.prepareStatement(sql)){
                 stmt.setString(1, usuario);
                 stmt.setString(2, senha);
+                Cadastros cadastros = new Cadastros();
+                JOptionPane.showMessageDialog(null, "ID: "+cadastros.getIdUsuario(usuario, senha));
 
                 try(ResultSet rs = stmt.executeQuery()){
                     return rs.next();

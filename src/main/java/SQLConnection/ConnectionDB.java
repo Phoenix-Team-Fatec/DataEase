@@ -5,6 +5,7 @@ public class ConnectionDB {
 
 
 
+    // conexão com o banco de dados do usuário
     public Connection getConnection() {
 
         try {
@@ -15,11 +16,12 @@ public class ConnectionDB {
         }
     }
 
+    // Constructior para criar objeto já com o DB conectado
     public ConnectionDB() {
         this.getConnection();
     }
 
-    
+    // Retorna como String o esquema do DB
     public String architectureDB() {
         StringBuilder result = new StringBuilder();
         try (Connection connection = getConnection()) {

@@ -3,20 +3,28 @@ package SQLConnection;
 import UserScreen.TelaLogin;
 
 import javax.swing.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 
 import static java.sql.DriverManager.getConnection;
 
 public class Cadastros {
 
-    public Connection getConnectionDataEase(){
+    private int idUsuario;
 
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    //
+    public Connection getConnectionDataEase(){
+    // método que conecta com o banco de dados cadastro
        try {
-            return DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "fatec");
+            return DriverManager.getConnection("jdbc:mysql://localhost/dataease", "root", "1234");
         }catch (SQLException e){
            throw new RuntimeException();
        }
@@ -24,15 +32,14 @@ public class Cadastros {
 
  public Cadastros(){
         this.getConnectionDataEase();
- }
+ } // constructor, ao criar um objeto já conecta com o DB
 
-    public void userCadastro(String nome, String senha, int id_banco_dados ) {
+    public void userCadastro(String nome, String senha) {
         try (Connection connection = getConnectionDataEase()) {
-            String sql = "INSERT INTO usuarios (nome, senha, id_banco_dados) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO usuarios (nome, senha) VALUES (?, ?)";
             try (PreparedStatement stmt = connection.prepareStatement(sql)) {
                 stmt.setString(1, nome);
                 stmt.setString(2, senha);
-                stmt.setInt(3, id_banco_dados);
 
                 int rowsAffected = stmt.executeUpdate();
                 if (rowsAffected > 0) {
@@ -45,7 +52,7 @@ public class Cadastros {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "SYSTEM ERROR DATABASE");
         }
-    }
+    } // cadastra usuários
 
 
     public void dataBaseCadastro(String nome_db, int index){
@@ -69,6 +76,22 @@ public class Cadastros {
         }
 
 
-    }
+    } // cadastra banco de dados
 
+
+    public int getIdUsuario(String nome, String senha) {
+        String sql = "Select idusuarios from usuarios where nome = ? and senha = ?";
+        try (Connection connection = getConnectionDataEase()){
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, nome);
+            stmt.setString(2, senha);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) { // Verifica se há algum resultado
+                idUsuario = rs.getInt("idusuarios");
+            }
+        }catch (SQLException error){
+
+        }
+        return idUsuario;
+    }
 }
