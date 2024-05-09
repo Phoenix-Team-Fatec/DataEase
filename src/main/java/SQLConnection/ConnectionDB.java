@@ -16,7 +16,7 @@ public class ConnectionDB {
         }
     }
 
-    // Constructior para criar objeto já com o DB conectado
+    // Constructor para criar objeto já com o DB conectado
     public ConnectionDB() {
         this.getConnection();
     }

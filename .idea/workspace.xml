@@ -5,25 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a05e549b-0fce-413d-bde7-15d571c5288e" name="Changes" comment="teste de mudança de icone">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2024_07_42__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2024_07_42__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LangChain/LmConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LangChain/LmConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQLConnection/Cadastros.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQLConnection/Cadastros.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SQLConnection/ConnectionDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQLConnection/ConnectionDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SQLConnection/InsertDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQLConnection/InsertDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserScreen/TelaCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserScreen/TelaCadastro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserScreen/TelaChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserScreen/TelaChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserScreen/TelaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserScreen/TelaLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UserScreen/telaDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserScreen/telaDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/LangChain/LmConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LangChain/LmConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SQLConnection/Cadastros.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SQLConnection/Cadastros.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SQLConnection/ConnectionDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SQLConnection/ConnectionDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SQLConnection/InsertDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SQLConnection/InsertDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/UserScreen/TelaCadastro$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserScreen/TelaCadastro$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/UserScreen/TelaCadastro.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserScreen/TelaCadastro.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/UserScreen/TelaChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserScreen/TelaChat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/UserScreen/TelaLogin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserScreen/TelaLogin$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/UserScreen/TelaLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserScreen/TelaLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/UserScreen/telaDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserScreen/telaDB.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,14 +98,6 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
-        <option value="jdk-22-openjdk-22-3183f394aec4-bad0321e" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -182,16 +160,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="teste de mudança de icone" />
     <option name="LAST_COMMIT_MESSAGE" value="teste de mudança de icone" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SQLConnection/InsertDB.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

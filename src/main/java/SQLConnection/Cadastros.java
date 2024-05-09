@@ -24,7 +24,7 @@ public class Cadastros {
     public Connection getConnectionDataEase(){
     // método que conecta com o banco de dados cadastro
        try {
-            return DriverManager.getConnection("jdbc:mysql://localhost/dataease", "root", "1234");
+            return DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "fatec");
         }catch (SQLException e){
            throw new RuntimeException();
        }
@@ -55,13 +55,16 @@ public class Cadastros {
     } // cadastra usuários
 
 
-    public void dataBaseCadastro(String nome_db, int index){
+    public void dataBaseCadastro(String nome_db, String usuario, String instance_name, String password_bd, int index){
 
-        String sql = "INSERT INTO banco_de_dados (nome_db, id_usuario) VALUES(?,?)";
+        String sql = "INSERT INTO banco_de_dados (nome_db, usuario, instance_name, password_bd, id_usuario) VALUES(?,?,?,?,?)";
         try(Connection connection = getConnectionDataEase()){
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1,nome_db);
-            stmt.setInt(2,index);
+            stmt.setString(2,usuario);
+            stmt.setString(3,instance_name);
+            stmt.setString(4,password_bd);
+            stmt.setInt(5,index);
 
             int linhas_afetadas = stmt.executeUpdate();
             if (linhas_afetadas > 0){
