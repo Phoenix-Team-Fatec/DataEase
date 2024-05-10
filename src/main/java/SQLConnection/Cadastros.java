@@ -123,4 +123,44 @@ public class Cadastros {
         return names;
     }
 
+
+    public List<String> getInstance(String nome, String senha){
+        List<String> instances = new ArrayList<>();
+        String sql = "Select instance_name from bando_de_dados where id_usuario = ?";
+
+        try(Connection connection = getConnectionDataEase()){
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1,getIdUsuario(nome,senha));
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()){
+                String name_instance = rs.getString("instance_name");
+                instances.add(name_instance);
+            }
+        }catch (SQLException exception){
+
+        }
+        return instances ;
+    }
+
+
+    public List<String> getUser(String nome, String senha){
+        List<String> users = new ArrayList<>();
+        String sql = "Select usuario from banco_de_dados where id_usuario = ?";
+
+        try(Connection connection = getConnectionDataEase()){
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1,getIdUsuario(nome,senha));
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()){
+                String name_instance = rs.getString("usuario");
+                users.add(name_instance);
+            }
+        }catch (SQLException exception){
+
+        }
+        return users ;
+    }
+
 }
