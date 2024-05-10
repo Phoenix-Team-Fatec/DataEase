@@ -4,6 +4,8 @@ import UserScreen.TelaLogin;
 
 import javax.swing.*;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 import static java.sql.DriverManager.getConnection;
@@ -11,6 +13,11 @@ import static java.sql.DriverManager.getConnection;
 public class Cadastros {
 
     private int idUsuario;
+    private String NameDB;
+
+    public void setNameDB(String nameDB) {
+        NameDB = nameDB;
+    }
 
     public int getIdUsuario() {
         return idUsuario;
@@ -24,7 +31,7 @@ public class Cadastros {
     public Connection getConnectionDataEase(){
     // método que conecta com o banco de dados cadastro
        try {
-            return DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "fatec");
+            return DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "1234");
         }catch (SQLException e){
            throw new RuntimeException();
        }
@@ -83,18 +90,37 @@ public class Cadastros {
 
 
     public int getIdUsuario(String nome, String senha) {
-        String sql = "Select idusuarios from usuarios where nome = ? and senha = ?";
+        String sql = "Select id_usuario from usuarios where nome = ? and senha = ?";
         try (Connection connection = getConnectionDataEase()){
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, nome);
             stmt.setString(2, senha);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) { // Verifica se há algum resultado
-                idUsuario = rs.getInt("idusuarios");
+                idUsuario = rs.getInt("id_usuario");
             }
         }catch (SQLException error){
 
         }
         return idUsuario;
     }
+
+    // RETORNA OS NOMES DOS BANCOS DE DADOS CADASTRADOS;
+    public List<String> getNameDB(String nome, String senha){
+        List<String> names = new ArrayList<>();
+        String sql = "Select nome_db from banco_de_dados where id_usuario = ?";
+        try (Connection connection = getConnectionDataEase()){
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, getIdUsuario(nome, senha));
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                String name = rs.getString("nome_db");
+                names.add(name);
+            }
+        }catch (SQLException error){
+
+        }
+        return names;
+    }
+
 }

@@ -104,7 +104,7 @@ public class telaDB extends JFrame {
         String password = insert_db_password.getText();
         String user = insert_user.getText();
         Cadastros database = new Cadastros();
-        database.dataBaseCadastro(db_name, user, instance, password, 1);
+        database.dataBaseCadastro(db_name, user, instance, password, 2);
 
     }
 
