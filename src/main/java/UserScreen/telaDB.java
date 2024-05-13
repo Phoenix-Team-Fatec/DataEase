@@ -8,8 +8,24 @@ import java.awt.event.ActionEvent;
 
 public class telaDB extends JFrame{
 
+     private String nome;
+     private String senha;
 
-    
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 
     JLabel TextDB = new JLabel();
     JTextField caixa_DB = new JTextField();
@@ -107,17 +123,18 @@ public class telaDB extends JFrame{
         String password = insert_db_password.getText();
         String user = insert_user.getText();
         Cadastros database = new Cadastros();
+
         if(db_name.length() > 1){
-            database.dataBaseCadastro(db_name,  1);
+            database.dataBaseCadastro(db_name,  database.getIdUsuario(this.getNome(),this.getSenha()));
         }
         if (instance.length() > 1){
-            database.cadastroInstance(instance,1);
+            database.cadastroInstance(instance,database.getIdUsuario(this.getNome(),this.getSenha()));
         }
         if (user.length() > 1){
-            database.cadastroUsers(user,1);
+            database.cadastroUsers(user,database.getIdUsuario(this.getNome(),this.getSenha()));
         }
         if(password.length() > 1){
-            database.cadastroPasswords(password,1);
+            database.cadastroPasswords(password,database.getIdUsuario(this.getNome(),this.getSenha()));
         }
 
     }

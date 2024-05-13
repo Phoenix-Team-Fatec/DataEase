@@ -142,6 +142,8 @@ public class TelaLogin extends JFrame implements ActionListener {
     public void abrirTelaChat(){
         TelaChat telaChat = new TelaChat(campoUsuario.getText(), campoSenha.getText());
         telaChat.setVisible(true);
+        telaChat.setNome(campoUsuario.getText());
+        telaChat.setSenha(campoSenha.getText());
         this.setVisible(false);
     }
 
