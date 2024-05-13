@@ -6,7 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class telaDB extends JFrame {
+public class telaDB extends JFrame{
+
+
+    
 
     JLabel TextDB = new JLabel();
     JTextField caixa_DB = new JTextField();
@@ -104,7 +107,18 @@ public class telaDB extends JFrame {
         String password = insert_db_password.getText();
         String user = insert_user.getText();
         Cadastros database = new Cadastros();
-        database.dataBaseCadastro(db_name, user, instance, password, 2);
+        if(db_name.length() > 1){
+            database.dataBaseCadastro(db_name,  1);
+        }
+        if (instance.length() > 1){
+            database.cadastroInstance(instance,1);
+        }
+        if (user.length() > 1){
+            database.cadastroUsers(user,1);
+        }
+        if(password.length() > 1){
+            database.cadastroPasswords(password,1);
+        }
 
     }
 

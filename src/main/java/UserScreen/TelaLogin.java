@@ -140,13 +140,13 @@ public class TelaLogin extends JFrame implements ActionListener {
     }
 
     public void abrirTelaChat(){
-        TelaChat telaChat = new TelaChat(campoUsuario.getText());
+        TelaChat telaChat = new TelaChat(campoUsuario.getText(), campoSenha.getText());
         telaChat.setVisible(true);
         this.setVisible(false);
     }
 
     private boolean verificarUsuario(String usuario, String senha){
-        try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "1234")){
+        try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "fatec")){
             String sql = "SELECT * FROM usuarios WHERE nome = ? AND senha = ?";
             try(PreparedStatement stmt = conn.prepareStatement(sql)){
                 stmt.setString(1, usuario);

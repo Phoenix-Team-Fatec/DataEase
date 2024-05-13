@@ -31,7 +31,7 @@ public class Cadastros {
     public Connection getConnectionDataEase(){
     // método que conecta com o banco de dados cadastro
        try {
-            return DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "1234");
+            return DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "fatec");
         }catch (SQLException e){
            throw new RuntimeException();
        }
@@ -62,21 +62,17 @@ public class Cadastros {
     } // cadastra usuários
 
 
-    public void dataBaseCadastro(String nome_db, String usuario, String instance_name, String password_bd, int index){
+    public void dataBaseCadastro(String nome_db, int index ){
 
-        String sql = "INSERT INTO banco_de_dados (nome_db, usuario, instance_name, password_bd, id_usuario) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO banco_de_dados (nome_db, id_usuario) VALUES(?,?)";
         try(Connection connection = getConnectionDataEase()){
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1,nome_db);
-            stmt.setString(2,usuario);
-            stmt.setString(3,instance_name);
-            stmt.setString(4,password_bd);
-            stmt.setInt(5,index);
+            stmt.setInt(2,1);
 
             int linhas_afetadas = stmt.executeUpdate();
-            if (linhas_afetadas > 0){
-                JOptionPane.showMessageDialog(null, "Banco de dados cadastrado com sucesso");
-            }else{
+            if (linhas_afetadas == 0){
+
                 JOptionPane.showMessageDialog(null, "SYSTEM ERROR DATABASE");
 
             }
@@ -87,6 +83,59 @@ public class Cadastros {
 
 
     } // cadastra banco de dados
+
+
+    public void cadastroInstance(String instance, int index){
+        String sql = "INSERT INTO instances (nome_instances, id_usuario) VALUES (?, ?)";
+        try (Connection connection = getConnectionDataEase();
+             PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, instance);
+            stmt.setInt(2, index);
+            int linhas_afetadas = stmt.executeUpdate();
+            if (linhas_afetadas > 0) {
+                JOptionPane.showMessageDialog(null, "Instância cadastrada com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Falha ao cadastrar instância");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao conectar ao banco de dados: " + e.getMessage());
+        }
+    }
+
+    public void cadastroUsers(String users, int index){
+        String sql = "INSERT INTO users (name_users, id_usuario) VALUES (?, ?)";
+        try (Connection connection = getConnectionDataEase();
+             PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, users);
+            stmt.setInt(2, index);
+            int linhas_afetadas = stmt.executeUpdate();
+            if (linhas_afetadas > 0) {
+                JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Falha ao cadastrar usuário");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao conectar ao banco de dados: " + e.getMessage());
+        }
+    }
+
+    public void cadastroPasswords(String password, int index){
+        String sql = "INSERT INTO passwords (users_passwords, id_usuario) VALUES (?, ?)";
+        try (Connection connection = getConnectionDataEase();
+             PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, password);
+            stmt.setInt(2, index);
+            int linhas_afetadas = stmt.executeUpdate();
+            if (linhas_afetadas > 0) {
+                JOptionPane.showMessageDialog(null, "Senha cadastrada com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Falha ao cadastrar senha");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao conectar ao banco de dados: " + e.getMessage());
+        }
+    }
+
 
 
     public int getIdUsuario(String nome, String senha) {
@@ -126,7 +175,7 @@ public class Cadastros {
 
     public List<String> getInstance(String nome, String senha){
         List<String> instances = new ArrayList<>();
-        String sql = "Select instance_name from bando_de_dados where id_usuario = ?";
+        String sql = "Select instance_name from instances where id_usuario = ?";
 
         try(Connection connection = getConnectionDataEase()){
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -146,7 +195,7 @@ public class Cadastros {
 
     public List<String> getUser(String nome, String senha){
         List<String> users = new ArrayList<>();
-        String sql = "Select usuario from banco_de_dados where id_usuario = ?";
+        String sql = "Select usuario from users where id_usuario = ?";
 
         try(Connection connection = getConnectionDataEase()){
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -162,5 +211,8 @@ public class Cadastros {
         }
         return users ;
     }
+
+
+
 
 }

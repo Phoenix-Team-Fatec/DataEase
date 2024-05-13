@@ -10,6 +10,8 @@ import java.util.List;
 import java.awt.event.ActionListener;
 public class  TelaChat extends javax.swing.JFrame implements ActionListener {
 
+    String nome;
+    String senha;
 
     private JLabel caixa_resposta;
     private JTextField caixa_entrada;
@@ -21,7 +23,7 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
     JButton botao_enviar;
     private JComboBox db_users = new JComboBox<>();
 
-    public TelaChat(String usuario){
+    public TelaChat(String nome, String senha){
         ScreenComponents();
     }
 
@@ -88,6 +90,8 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
     // Abre a tela de cadastro de DB
     private void changeToTelaDB(ActionEvent actionEvent) {
         new telaDB();
+
+
     }
 
     // Envia o input do usuário para ConnectionDB
@@ -108,6 +112,8 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
 
         // Definindo a String concatenada como texto do Label
         caixa_resposta.setText(resultadoFormatado);
+
+
     }
     @Override
     public void actionPerformed(ActionEvent e) {
