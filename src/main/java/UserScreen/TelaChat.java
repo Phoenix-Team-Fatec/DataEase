@@ -2,6 +2,7 @@
 package UserScreen;
 
 import LangChain.LmConnection;
+import SQLConnection.Cadastros;
 import SQLConnection.InsertDB;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -33,12 +34,12 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
     private JLabel caixa_resposta;
     private JTextField caixa_entrada;
     private JPanel painel_chat = new JPanel();
-    private JComboBox usersBD = new JComboBox<>();
+    private JComboBox usersBD = new JComboBox<String>();
     private JButton botao_add_bd = new JButton("+");
     private JLabel texto_Adiciona_bd = new JLabel("Novo Banco de dados");
     JButton botao_enviar;
-    private JComboBox db_users = new JComboBox<>();
-    private JComboBox db_instance = new JComboBox<>();
+    private JComboBox db_users = new JComboBox<String>();
+    private JComboBox db_instance = new JComboBox<String>();
     private JLabel texto_db = new JLabel("Banco de Dados:");
     private JLabel texto_instance = new JLabel("Instancia:");
     private JLabel texto_users = new JLabel("Usuario:");
@@ -75,8 +76,6 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         painel_chat.setLayout(null);
         painel_chat.setBackground(new Color(44, 10, 200));
         add(painel_chat);
-
-        
 
         //Caixa Resposta
         caixa_resposta = new JLabel();
@@ -156,6 +155,29 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
     private void aparecer_side_bar(ActionEvent actionEvent) {
         painel_chat.setVisible(true);
         side_bar.setVisible(false);
+    }
+
+    public void preencherJComboBox(){
+        Cadastros preenche = new Cadastros();
+        List<String> dbNames = preenche.getNameDB(this.getNome(), this.getSenha());
+        List<String> instances = preenche.getInstance(this.getNome(), this.getSenha());
+        List<String> users = preenche.getUser(this.getNome(), this.getSenha());
+
+        //Limpar os JComboBox
+        usersBD.removeAllItems();
+        db_instance.removeAllItems();
+        db_users.removeAllItems();
+
+        //Adiciona os itens recuperados aos JComboBox
+        for (String dbName : dbNames){
+            usersBD.addItem(dbName);
+        }
+        for (String instace : instances){
+            db_instance.addItem(instace);
+        }
+        for(String user : users){
+            db_users.addItem(user);
+        }
     }
 
     // Abre a tela de cadastro de DB
