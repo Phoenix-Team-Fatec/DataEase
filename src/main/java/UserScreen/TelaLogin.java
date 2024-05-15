@@ -145,10 +145,11 @@ public class TelaLogin extends JFrame implements ActionListener {
         telaChat.setNome(campoUsuario.getText());
         telaChat.setSenha(campoSenha.getText());
         this.setVisible(false);
+        telaChat.preencherJComboBox();
     }
 
     private boolean verificarUsuario(String usuario, String senha){
-        try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "fatec")){
+        try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "1234")){
             String sql = "SELECT * FROM usuarios WHERE nome = ? AND senha = ?";
             try(PreparedStatement stmt = conn.prepareStatement(sql)){
                 stmt.setString(1, usuario);

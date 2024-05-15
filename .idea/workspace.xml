@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="a05e549b-0fce-413d-bde7-15d571c5288e" name="Changes" comment="teste de mudança de icone" />
+=======
+    <list default="true" id="a05e549b-0fce-413d-bde7-15d571c5288e" name="Changes" comment="teste de mudança de icone">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SQLConnection/Cadastros.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SQLConnection/Cadastros.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserScreen/TelaChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserScreen/TelaChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserScreen/TelaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserScreen/TelaLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/UserScreen/TelaChat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserScreen/TelaChat.class" afterDir="false" />
+    </list>
+>>>>>>> f3ca390f764b76efb556af5553bb792a2ca59631
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,6 +102,16 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+<<<<<<< HEAD
+=======
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-22-openjdk-22-3183f394aec4-bad0321e" />
+      </set>
+    </attachedChunks>
+  </component>
+>>>>>>> f3ca390f764b76efb556af5553bb792a2ca59631
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -154,20 +174,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="teste de mudança de icone" />
     <option name="LAST_COMMIT_MESSAGE" value="teste de mudança de icone" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/UserScreen/TelaChat.java</url>
-          <line>49</line>
-          <properties class="UserScreen.TelaChat" method="&lt;init&gt;">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

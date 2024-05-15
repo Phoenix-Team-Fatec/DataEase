@@ -31,7 +31,7 @@ public class Cadastros {
     public Connection getConnectionDataEase(){
     // método que conecta com o banco de dados cadastro
        try {
-            return DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "fatec");
+            return DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "1234");
         }catch (SQLException e){
            throw new RuntimeException();
        }
@@ -175,27 +175,26 @@ public class Cadastros {
 
     public List<String> getInstance(String nome, String senha){
         List<String> instances = new ArrayList<>();
-        String sql = "Select instance_name from instances where id_usuario = ?";
-
+        String sql = "SELECT nome_instances FROM instances WHERE id_usuario = ?";
         try(Connection connection = getConnectionDataEase()){
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setInt(1,getIdUsuario(nome,senha));
-
+            stmt.setInt(1, getIdUsuario(nome, senha));
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){
-                String name_instance = rs.getString("instance_name");
+                String name_instance = rs.getString("nome_instances");
                 instances.add(name_instance);
             }
-        }catch (SQLException exception){
-
+        } catch (SQLException error) {
+            // Adicione tratamento de exceções, como logging ou relançamento da exceção
+            error.printStackTrace(); // Isso pode ajudar a identificar problemas durante a execução
         }
-        return instances ;
+        return instances;
     }
 
 
     public List<String> getUser(String nome, String senha){
         List<String> users = new ArrayList<>();
-        String sql = "Select usuario from users where id_usuario = ?";
+        String sql = "Select name_users from users where id_usuario = ?";
 
         try(Connection connection = getConnectionDataEase()){
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -203,11 +202,12 @@ public class Cadastros {
 
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){
-                String name_instance = rs.getString("usuario");
+                String name_instance = rs.getString("name_users");
                 users.add(name_instance);
             }
-        }catch (SQLException exception){
-
+        }catch (SQLException error) {
+            // Adicione tratamento de exceções, como logging ou relançamento da exceção
+            error.printStackTrace(); // Isso pode ajudar a identificar problemas durante a execução
         }
         return users ;
     }
