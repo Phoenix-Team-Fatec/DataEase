@@ -43,9 +43,15 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
     private JLabel texto_instance = new JLabel("Instancia:");
     private JLabel texto_users = new JLabel("Usuario:");
 
-    private JButton side_bar  = new JButton("=");
+    //Icone Jbutton
+    ImageIcon close_icon = new ImageIcon("C:\\Users\\xgust\\DataEase\\src\\main\\java\\UserScreen\\botsair.png");
 
-    private JButton exit_side = new JButton("x");
+    ImageIcon open_sidebar = new ImageIcon("C:\\Users\\xgust\\DataEase\\src\\main\\java\\UserScreen\\menu1.png");
+
+    private JButton side_bar  = new JButton(open_sidebar);
+
+    private JButton exit_side = new JButton(close_icon);
+
 
     public TelaChat(String nome, String senha){
         ScreenComponents();
@@ -131,12 +137,12 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         db_users.setBounds(40, 360, 180, 20);
 
         add(side_bar);
-        side_bar.setBounds(20,20,50,20);
+        side_bar.setBounds(20,20,32,32);
         side_bar.addActionListener(this::aparecer_side_bar);
 
 
         painel_chat.add(exit_side);
-        exit_side.setBounds(10,10,30,20);
+        exit_side.setBounds(10,10,30,30);
         exit_side.addActionListener(this:: sair_side_bar);
 
 
