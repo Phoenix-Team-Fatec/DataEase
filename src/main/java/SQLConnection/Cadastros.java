@@ -31,7 +31,7 @@ public class Cadastros {
     public Connection getConnectionDataEase(){
     // método que conecta com o banco de dados cadastro
        try {
-            return DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "1234");
+            return DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "fatec");
         }catch (SQLException e){
            throw new RuntimeException();
        }
@@ -68,7 +68,7 @@ public class Cadastros {
         try(Connection connection = getConnectionDataEase()){
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1,nome_db);
-            stmt.setInt(2,1);
+            stmt.setInt(2,index);
 
             int linhas_afetadas = stmt.executeUpdate();
             if (linhas_afetadas == 0){
@@ -211,6 +211,28 @@ public class Cadastros {
         }
         return users ;
     }
+
+
+    public List<String> getPasswords(String nome, String senha){
+        List<String> senhas = new ArrayList<>();
+        String sql = "Select users_passwords from passwords where id_usuario = ?";
+
+        try(Connection connection = getConnectionDataEase()){
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1,getIdUsuario(nome,senha));
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()){
+                String name_instance = rs.getString("users_passwords");
+                senhas.add(name_instance);
+            }
+        }catch (SQLException error) {
+            // Adicione tratamento de exceções, como logging ou relançamento da exceção
+            error.printStackTrace(); // Isso pode ajudar a identificar problemas durante a execução
+        }
+        return senhas ;
+    }
+
 
 
 

@@ -128,7 +128,7 @@ public class TelaLogin extends JFrame implements ActionListener {
             boolean usuarioCadastrado = verificarUsuario(usuario, senha); // Supondo que verificarUsuario é um método que verifica se o usuário existe
 
             if (usuarioCadastrado) {
-                JOptionPane.showMessageDialog(this, "Usuário " + usuario + " logado com sucesso!");
+
                 abrirTelaChat();
             } else {
                 int opcao = JOptionPane.showConfirmDialog(this, "Usuário não encontrado. Deseja se cadastrar?", "Usuário não encontrado", JOptionPane.YES_NO_OPTION);
@@ -142,21 +142,19 @@ public class TelaLogin extends JFrame implements ActionListener {
     public void abrirTelaChat(){
         TelaChat telaChat = new TelaChat(campoUsuario.getText(), campoSenha.getText());
         telaChat.setVisible(true);
-        telaChat.setNome(campoUsuario.getText());
-        telaChat.setSenha(campoSenha.getText());
-        this.setVisible(false);
-        telaChat.preencherJComboBox();
+
+       JOptionPane.showMessageDialog(null,"Bem Vindo " + campoUsuario.getText() + "!");
+        this.dispose();
+
     }
 
     private boolean verificarUsuario(String usuario, String senha){
-        try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "1234")){
+        try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "fatec")){
             String sql = "SELECT * FROM usuarios WHERE nome = ? AND senha = ?";
             try(PreparedStatement stmt = conn.prepareStatement(sql)){
                 stmt.setString(1, usuario);
                 stmt.setString(2, senha);
-                Cadastros cadastros = new Cadastros();
-                JOptionPane.showMessageDialog(null, "ID: "+cadastros.getIdUsuario(usuario, senha));
-                JOptionPane.showMessageDialog(null, "NOME DB: "+cadastros.getNameDB(usuario, senha));
+
 
                 try(ResultSet rs = stmt.executeQuery()){
                     return rs.next();

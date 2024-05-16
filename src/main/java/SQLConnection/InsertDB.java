@@ -20,8 +20,8 @@ public class InsertDB {
     }
 
     // Constructor que conecta o objeto ao DB
-    public InsertDB(){
-        this.connection = new ConnectionDB().getConnection();
+    public InsertDB(String instance, String nome_db, String users, String senha){
+        this.connection = new ConnectionDB(instance,nome_db,users,senha).getConnection(instance,nome_db,users,senha);
     }
 
     //recebendo os dados e imprimindo na tela

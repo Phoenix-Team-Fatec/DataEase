@@ -3,6 +3,7 @@ package UserScreen;
 
 import LangChain.LmConnection;
 import SQLConnection.Cadastros;
+import SQLConnection.ConnectionDB;
 import SQLConnection.InsertDB;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -16,7 +17,7 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
     private String senha;
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public void setNome(String nome) {
@@ -24,7 +25,7 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
     }
 
     public String getSenha() {
-        return senha;
+        return this.senha;
     }
 
     public void setSenha(String senha) {
@@ -56,6 +57,10 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
 
     public TelaChat(String nome, String senha){
         ScreenComponents();
+        this.setNome(nome);
+        this.setSenha(senha);
+        this.preencherJComboBox(this.getNome(),this.getSenha());
+        JOptionPane.showMessageDialog(null,this.getNome());
     }
 
     private void ScreenComponents(){
@@ -157,11 +162,12 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         side_bar.setVisible(false);
     }
 
-    public void preencherJComboBox(){
+    public void preencherJComboBox(String nome, String senha){
         Cadastros preenche = new Cadastros();
-        List<String> dbNames = preenche.getNameDB(this.getNome(), this.getSenha());
-        List<String> instances = preenche.getInstance(this.getNome(), this.getSenha());
-        List<String> users = preenche.getUser(this.getNome(), this.getSenha());
+
+        List<String> dbNames = preenche.getNameDB(nome, senha);
+        List<String> instances = preenche.getInstance(nome, senha);
+        List<String> users = preenche.getUser(nome, senha);
 
         //Limpar os JComboBox
         usersBD.removeAllItems();
@@ -186,6 +192,7 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         teladb.setNome(this.getNome());
         teladb.setSenha(this.getSenha());
 
+        this.dispose();
 
     }
 
@@ -195,10 +202,15 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         LmConnection prompt = new LmConnection();
         prompt.setContent(entrada);
 
+        //Selecionar o seu banco de dados
+        Cadastros cadastros = new Cadastros();
+        String senha = cadastros.getPasswords(this.getNome(),this.getSenha()).get(0);;
+        ConnectionDB connectionDB = new ConnectionDB(db_instance.getSelectedItem().toString(),usersBD.getSelectedItem().toString(),db_users.getSelectedItem().toString(),senha);
+
         // caixa_resposta.setText(prompt.getPrompt());
 
-        InsertDB consulta = new InsertDB();
-        consulta.setSql_prompt(prompt.getPrompt());
+        InsertDB consulta = new InsertDB(db_instance.getSelectedItem().toString(),usersBD.getSelectedItem().toString(),db_users.getSelectedItem().toString(),senha);
+        consulta.setSql_prompt(prompt.getPrompt(connectionDB));
 
         List<String> resultados = consulta.select();
 
@@ -215,8 +227,6 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
 
     }
 
-    public static void main(String[] args) {
-        new TelaChat("matheus", "");
-    }
+
 }
 

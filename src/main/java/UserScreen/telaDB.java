@@ -11,6 +11,8 @@ public class telaDB extends JFrame{
      private String nome;
      private String senha;
 
+
+
     public String getNome() {
         return nome;
     }
@@ -113,8 +115,14 @@ public class telaDB extends JFrame{
 
     // Volta tela do chat
     private void voltar(ActionEvent actionEvent) {
-        this.setVisible(false);
+        TelaChat telaChat = new TelaChat(this.getNome(),this.getSenha());
+        telaChat.preencherJComboBox(this.getNome(),this.getSenha());
+        this.dispose();
+
+
     }
+
+
 
     // Cadastra o DB
     private void sendDB(ActionEvent actionEvent) {
@@ -139,7 +147,7 @@ public class telaDB extends JFrame{
 
     }
 
-    public static void main(String[] args) {
-        new telaDB();
-    }
+
+
+
 }

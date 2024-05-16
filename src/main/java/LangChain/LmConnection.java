@@ -28,8 +28,8 @@ public class LmConnection  {
         this.conn = conn;
     }
 
-    public String getPrompt()  {
-        ConnectionDB connectionDB = new ConnectionDB(); // cria um objeto
+    public String getPrompt(ConnectionDB connectionDB)  {
+         // cria um objeto
 
         ChatLanguageModel model = LocalAiChatModel.builder()
                 .baseUrl("http://localhost:1234/v1")
