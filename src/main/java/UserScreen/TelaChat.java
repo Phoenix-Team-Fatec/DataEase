@@ -79,7 +79,7 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         painel_chat.setSize(250, 600);
         painel_chat.setVisible(false);
         painel_chat.setLayout(null);
-        painel_chat.setBackground(new Color(44, 10, 200));
+        painel_chat.setBackground(new Color(86, 28, 122));
         add(painel_chat);
 
         //Caixa Resposta
@@ -108,13 +108,19 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         add(botao_enviar);
 
 
+        //Ir tele cadastro
+        texto_Adiciona_bd.setBounds(625,30,200,20);
+        texto_Adiciona_bd.setForeground(Color.white);
+        add(texto_Adiciona_bd);
+
+
 
 
         //Dropdown para seleção do banco de dados do usuário e Botão para adição do mesmo
 
 
         add(botao_add_bd);
-        botao_add_bd.setBounds(340,39,50,15);
+        botao_add_bd.setBounds(760,33,50,15);
         botao_add_bd.addActionListener(this::changeToTelaDB);
 
         //painel chat
@@ -225,6 +231,10 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+    }
+
+    public static void main(String[] args) {
+        new TelaChat("","");
     }
 
 
