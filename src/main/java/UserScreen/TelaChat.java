@@ -41,9 +41,11 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
     JButton botao_enviar;
     private JComboBox db_users = new JComboBox<String>();
     private JComboBox db_instance = new JComboBox<String>();
+    private JComboBox db_passwords = new JComboBox<String>();
     private JLabel texto_db = new JLabel("Banco de Dados:");
     private JLabel texto_instance = new JLabel("Instancia:");
     private JLabel texto_users = new JLabel("Usuario:");
+    private JLabel texto_passwords = new JLabel("Senha:");
 
     //Icone Jbutton
     ImageIcon close_icon = new ImageIcon("C:\\Users\\xgust\\DataEase\\src\\main\\java\\UserScreen\\botsair.png");
@@ -105,6 +107,7 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         botao_enviar.setBorder(new LineBorder(new Color(224, 170, 255)));
         botao_enviar.setBackground(new Color(157,78,221));
         botao_enviar.addActionListener(this::sendText);
+        botao_enviar.setForeground(Color.white);
         add(botao_enviar);
 
 
@@ -118,10 +121,15 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
 
         //Dropdown para seleção do banco de dados do usuário e Botão para adição do mesmo
 
-
         add(botao_add_bd);
-        botao_add_bd.setBounds(760,33,50,15);
+        Font fonte = botao_add_bd.getFont();
+        float tamanhoFonte = fonte.getSize() + 12; // Aumenta 2 pontos
+        botao_add_bd.setFont(fonte.deriveFont(tamanhoFonte));
+        botao_add_bd.setBounds(760,25,50,25);
         botao_add_bd.addActionListener(this::changeToTelaDB);
+        botao_add_bd.setBorder(new LineBorder(new Color(224, 170, 255)));
+        botao_add_bd.setBackground(new Color(157,78,221));
+        botao_add_bd.setForeground(Color.white);
 
         //painel chat
         painel_chat.add(db_instance);
@@ -130,6 +138,8 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         painel_chat.add(texto_instance);
         painel_chat.add(texto_users);
         painel_chat.add(usersBD);
+        painel_chat.add(texto_passwords);
+        painel_chat.add(db_passwords);
         usersBD.setBounds(40,80,180,20);
 
         painel_chat.add(texto_db);
@@ -145,6 +155,11 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         texto_users.setBounds(10,340,100,20);
         texto_users.setForeground(Color.white);
         db_users.setBounds(40, 360, 180, 20);
+
+        painel_chat.add(texto_passwords);
+        texto_passwords.setBounds(10,450,100,20);
+        texto_passwords.setForeground(Color.white);
+        db_passwords.setBounds(40, 470, 180, 20);
 
         add(side_bar);
         side_bar.setBounds(20,20,32,32);
@@ -174,11 +189,13 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         List<String> dbNames = preenche.getNameDB(nome, senha);
         List<String> instances = preenche.getInstance(nome, senha);
         List<String> users = preenche.getUser(nome, senha);
+        List<String> passwords = preenche.getPasswords(nome, senha);
 
         //Limpar os JComboBox
         usersBD.removeAllItems();
         db_instance.removeAllItems();
         db_users.removeAllItems();
+        db_passwords.removeAllItems();
 
         //Adiciona os itens recuperados aos JComboBox
         for (String dbName : dbNames){
@@ -189,6 +206,9 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         }
         for(String user : users){
             db_users.addItem(user);
+        }
+        for(String password: passwords){
+            db_passwords.addItem(password);
         }
     }
 
@@ -210,12 +230,11 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
 
         //Selecionar o seu banco de dados
         Cadastros cadastros = new Cadastros();
-        String senha = cadastros.getPasswords(this.getNome(),this.getSenha()).get(0);;
-        ConnectionDB connectionDB = new ConnectionDB(db_instance.getSelectedItem().toString(),usersBD.getSelectedItem().toString(),db_users.getSelectedItem().toString(),senha);
+        ConnectionDB connectionDB = new ConnectionDB(db_instance.getSelectedItem().toString(),usersBD.getSelectedItem().toString(),db_users.getSelectedItem().toString(),db_passwords.getSelectedItem().toString());
 
         // caixa_resposta.setText(prompt.getPrompt());
 
-        InsertDB consulta = new InsertDB(db_instance.getSelectedItem().toString(),usersBD.getSelectedItem().toString(),db_users.getSelectedItem().toString(),senha);
+        InsertDB consulta = new InsertDB(db_instance.getSelectedItem().toString(),usersBD.getSelectedItem().toString(),db_users.getSelectedItem().toString(),db_passwords.getSelectedItem().toString());
         consulta.setSql_prompt(prompt.getPrompt(connectionDB));
 
         List<String> resultados = consulta.select();
