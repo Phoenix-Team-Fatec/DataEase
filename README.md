@@ -65,6 +65,9 @@
 |Tela de Login| :white_check_mark: |
 |Alterar Banco de Dados| :white_check_mark: |
 |Otimização de tela de chat| :white_check_mark: |
+### Video demonstrativo Sprint 3:
+https://github.com/Phoenix-Team-Fatec/DataEase/assets/69217649/9c253162-ddff-4868-a339-0ed99397c180
+
 
 ## 🛠️ Tecnologias
 
