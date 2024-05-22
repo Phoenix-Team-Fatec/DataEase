@@ -6,10 +6,10 @@ import java.util.List;
 
 public class InsertDB {
 
-    List<String> results = new ArrayList<>();
-    private Connection connection;
+    List<String> results = new ArrayList<>(); // Cria a lista
+    private Connection connection; // Conexão com o DB
 
-    private String sql_prompt;
+    private String sql_prompt; // Comando SQL
 
     public String getSql_prompt() {
         return sql_prompt;
@@ -19,11 +19,13 @@ public class InsertDB {
         this.sql_prompt = sql_prompt;
     }
 
-    public InsertDB(){
-        this.connection = new ConnectionDB().getConnection();
+    // Constructor que conecta o objeto ao DB
+    public InsertDB(String instance, String nome_db, String users, String senha){
+        this.connection = new ConnectionDB(instance,nome_db,users,senha).getConnection(instance,nome_db,users,senha);
     }
 
-    public List<String> select(){
+    //recebendo os dados e imprimindo na tela
+    public List<String> select() {
 
         String sql = this.getSql_prompt();
 
@@ -48,6 +50,7 @@ public class InsertDB {
                 }
             }
 
+
             rs.close();
             stmt.close();
         }
@@ -56,6 +59,23 @@ public class InsertDB {
             new RuntimeException(u);
         }
         return results;
+    }
+
+    // Retorna resultado formatado para a tela
+    public String resultadoConcatenado(List<String> resultados){
+        StringBuilder sb = new StringBuilder();
+        sb.append("<html><head><style>");
+        sb.append("table { border-collapse: collapse; width: 100%; }");
+        sb.append("th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }");
+        sb.append("th { background-color: #f2f2f2; }");
+        sb.append("</style></head><body><table>");
+
+        for (String resultado : resultados) {
+            sb.append("<tr><td>").append(resultado).append("</td></tr>");
+        }
+
+        sb.append("</table></body></html>");
+        return sb.toString();
     }
 
 }
