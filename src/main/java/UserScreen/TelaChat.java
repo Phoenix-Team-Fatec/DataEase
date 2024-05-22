@@ -61,7 +61,7 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         this.setNome(nome);
         this.setSenha(senha);
         this.preencherJComboBox(this.getNome(),this.getSenha());
-        JOptionPane.showMessageDialog(null,this.getNome());
+
     }
 
     private void ScreenComponents(){
