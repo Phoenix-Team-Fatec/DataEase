@@ -12,7 +12,12 @@
 | #03    | Alta |EU, enquanto cliente, quero que o DataEase retorne as informações do banco de dados | Desktop App |  2  | 
 | #04    | Média |EU, enquanto cliente, quero uma interface contendo 3 principais itens, uma caixa de input do texto do usuário, botão de enviar e dados do banco | Desktop App | 2  |
 | #05    | Média |EU, enquanto cliente, quero conseguir mudar meu banco de dados, que será consultado de acordo com a minha necessidade | Desktop App | 3 |
-| #06    | Média |EU, enquanto cliente, quero conseguir mudar meu modelo de linguagem (LM), de acordo com a minhha necesssidade | Desktop App| 4 |
+| #06    | Média |EU, enquanto cliente, quero conseguir criar um usuário para utilizar o aplicativo | Desktop App | 3 |
+| #07    | Média |EU, enquanto cliente, quero conseguir fazer o cadastro do meu banco de dados no aplicativo | Desktop App | 3 |
+| #08    | Média |EU, enquanto cliente, quero fazer login no aplicativo | Desktop App | 3 | 
+| #09    | Média |EU, enquanto cliente, quero conseguir mudar meu modelo de linguagem (LM), de acordo com a minhha necesssidade | Desktop App| 4 |
+
+
 
 ## MVP
 <span id="mvp">
@@ -48,6 +53,18 @@
 |Conexão com o Banco de Dados| :white_check_mark: |
 |Retorno para o usuário| :white_check_mark: |
 |Otimização do código| :white_check_mark: |
+
+### Sprint 3 - Alterar Banco de Dados
+
+| ITEM   | STATUS |
+| :----: | :----: |
+|Otimização do código| :white_check_mark: |
+|Criação de Banco de Dados para cadastro| :white_check_mark: |
+|Tela de cadastro de usuário| :white_check_mark: |
+|Tela de cadastro de Banco de Dados| :white_check_mark: |
+|Tela de Login| :white_check_mark: |
+|Alterar Banco de Dados| :white_check_mark: |
+|Otimização de tela de chat| :white_check_mark: |
 
 ## 🛠️ Tecnologias
 
