@@ -48,6 +48,8 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
     private JLabel texto_passwords = new JLabel("Senha:");
     private JComboBox troca_lm = new JComboBox<>();
 
+    private JButton botao_ligar_desligar = new JButton("Start Server");
+
     //Icone Jbutton
     ImageIcon close_icon = new ImageIcon("C:\\Users\\xgust\\DataEase\\src\\main\\java\\UserScreen\\botsair.png");
 
@@ -111,6 +113,20 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         botao_enviar.setForeground(Color.white);
         add(botao_enviar);
 
+        //Botao_ligar_desligar
+        botao_ligar_desligar = new JButton("Start Server");
+        botao_ligar_desligar.setBounds(270, 25, 120, 25);
+        botao_ligar_desligar.setBorder(new LineBorder(new Color(224, 170, 252)));
+        botao_ligar_desligar.setBackground(new Color(157, 78, 221));
+        botao_ligar_desligar.setForeground(Color.white);
+        botao_ligar_desligar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                toggleServerButton();
+            }
+        });
+        add(botao_ligar_desligar);
+
 
         //Ir tele cadastro
         texto_Adiciona_bd.setBounds(625,30,200,20);
@@ -173,7 +189,7 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
 
         //Troca de lm
         add(troca_lm);
-        troca_lm.setBounds(100,35, 150, 20);
+        troca_lm.setBounds(100,25, 150, 25);
 
 
     }
@@ -214,6 +230,14 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         }
         for(String password: passwords){
             db_passwords.addItem(password);
+        }
+    }
+
+    private void toggleServerButton(){
+        if(botao_ligar_desligar.getText().equals("Start Server")){
+            botao_ligar_desligar.setText("Stop Server");
+        }else{
+            botao_ligar_desligar.setText("Start Server");
         }
     }
 
