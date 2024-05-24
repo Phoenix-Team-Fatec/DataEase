@@ -3,6 +3,10 @@ package LangChain;
 import SQLConnection.ConnectionDB;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.localai.LocalAiChatModel;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 
 
@@ -41,8 +45,38 @@ public class LmConnection  {
          return languageSql; // retorna o SQL
     }
 
+    public void LigatLm(){
 
+        // Comando a ser executado
+        String command = "cmd.exe /c lms start server";
 
+        // Criação do ProcessBuilder
+        ProcessBuilder processBuilder = new ProcessBuilder();
 
+        // Configura o comando a ser executado pelo ProcessBuilder
+        processBuilder.command(command.split(" "));
+
+        try {
+            // Iniciar o processo
+            Process process = processBuilder.start();
+
+            // Capturar a saída do processo
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+
+            // Lê e imprime cada linha da saída do processo
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            // Esperar o término do processo e obter o código de saída
+            int exitCode = process.waitFor();
+            System.out.println("\nComando finalizado com código: " + exitCode);
+
+        } catch (IOException | InterruptedException e) {
+            // Captura e imprime exceções que possam ocorrer durante a execução do comando
+            e.printStackTrace();
+    }
 
     }
+}
