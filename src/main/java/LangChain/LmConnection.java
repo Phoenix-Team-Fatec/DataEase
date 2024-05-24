@@ -4,10 +4,13 @@ import SQLConnection.ConnectionDB;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.localai.LocalAiChatModel;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class LmConnection  {
@@ -37,16 +40,54 @@ public class LmConnection  {
 
         ChatLanguageModel model = LocalAiChatModel.builder()
                 .baseUrl("http://localhost:1234/v1")
-                .modelName("nsql")
+                .modelName("")
                 .temperature(0.9)
                 .build(); // defini o servidor, o nome do modelo, a qualidade da resposta
 
          String languageSql = model.generate(this.getContent() + "\n" + connectionDB.architectureDB()  ); //envia a entrada do usuário e o esquema do banco de dados do usuário para gerar o SQL
          return languageSql; // retorna o SQL
     }
-//____________________________________________
 
-    //Ligar o modelo
+    public List<String> listarLms(){
+        String command = "cmd.exe /c lms ls";
+
+        ProcessBuilder processBuilder = new ProcessBuilder();
+
+        processBuilder.command(command.split(" "));
+
+        List<String> resultList = new ArrayList<>();
+
+        try{
+            Process process = processBuilder.start();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // Adiciona apenas as linhas que contêm os nomes dos modelos
+                if (line.trim().length() > 0 && !line.startsWith("LLMs") && !line.contains("SIZE") && !line.contains("ARCHITECTURE")) {
+                    // Supondo que os nomes dos modelos terminam no primeiro conjunto de espaços
+                    String modelName = line.split("\\s{2,}")[0]; // Dividir por dois ou mais espaços
+                    resultList.add(modelName);
+                }
+            }
+
+            int exitCode = process.waitFor();
+            if (exitCode != 0) {
+                System.err.println("Comando terminou com código de erro: " + exitCode);
+            }
+
+
+
+
+        }catch(Exception e ){
+
+        }
+
+        return resultList;
+
+    }
+
     public void ligarmodel (String nameModel){
         String command = "cmd.exe /c lms load " + nameModel;
         // Criação do ProcessBuilder
@@ -142,7 +183,20 @@ public class LmConnection  {
         } catch (IOException | InterruptedException e) {
             // Captura e imprime exceções que possam ocorrer durante a execução do comando
             e.printStackTrace();
-    }
+        }
 
     }
-}
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
