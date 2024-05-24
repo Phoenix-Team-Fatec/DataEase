@@ -35,12 +35,12 @@ public class LmConnection  {
         this.conn = conn;
     }
 
-    public String getPrompt(ConnectionDB connectionDB)  {
+    public String getPrompt(ConnectionDB connectionDB, String modelName)  {
          // cria um objeto
 
         ChatLanguageModel model = LocalAiChatModel.builder()
                 .baseUrl("http://localhost:1234/v1")
-                .modelName("")
+                .modelName(modelName)
                 .temperature(0.9)
                 .build(); // defini o servidor, o nome do modelo, a qualidade da resposta
 
@@ -155,7 +155,7 @@ public class LmConnection  {
     public void LigatLm(){
 
         // Comando a ser executado
-        String command = "cmd.exe /c lms start server";
+        String command = "cmd.exe /c lms server start";
 
         // Criação do ProcessBuilder
         ProcessBuilder processBuilder = new ProcessBuilder();
@@ -186,6 +186,43 @@ public class LmConnection  {
         }
 
     }
+
+
+
+    public void desligarServidor(){
+        // Comando a ser executado
+        String command = "cmd.exe /c lms server stop";
+
+        // Criação do ProcessBuilder
+        ProcessBuilder processBuilder = new ProcessBuilder();
+
+        // Configura o comando a ser executado pelo ProcessBuilder
+        processBuilder.command(command.split(" "));
+
+        try {
+            // Iniciar o processo
+            Process process = processBuilder.start();
+
+            // Capturar a saída do processo
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+
+            // Lê e imprime cada linha da saída do processo
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            // Esperar o término do processo e obter o código de saída
+            int exitCode = process.waitFor();
+            System.out.println("\nComando finalizado com código: " + exitCode);
+
+        } catch (IOException | InterruptedException e) {
+            // Captura e imprime exceções que possam ocorrer durante a execução do comando
+            e.printStackTrace();
+        }
+
+    }
+
 
 
 
