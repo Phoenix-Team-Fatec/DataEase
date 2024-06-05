@@ -56,7 +56,7 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
     //Icone Jbutton
     ImageIcon close_icon = new ImageIcon("C:\\Users\\xgust\\DataEase\\src\\main\\java\\UserScreen\\botsair.png");
 
-    ImageIcon open_sidebar = new ImageIcon("C:\\Users\\xgust\\DataEase\\src\\main\\java\\UserScreen\\menu1.png");
+    ImageIcon open_sidebar = new ImageIcon("C:\\Users\\xgust\\DataEase\\src\\main\\java\\UserScreen\\menu==.png");
 
     private JButton side_bar  = new JButton(open_sidebar);
 
@@ -192,11 +192,21 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         add(side_bar);
         side_bar.setBounds(20,20,32,32);
         side_bar.addActionListener(this::aparecer_side_bar);
+        // Configurações para remover as bordas
+        side_bar.setBorderPainted(false);
+        side_bar.setContentAreaFilled(false);
+        side_bar.setFocusPainted(false);
+        side_bar.setOpaque(false);
 
 
         painel_chat.add(exit_side);
         exit_side.setBounds(10,10,30,30);
         exit_side.addActionListener(this:: sair_side_bar);
+        // Configurações para remover as bordas
+        exit_side.setBorderPainted(false);
+        exit_side.setContentAreaFilled(false);
+        exit_side.setFocusPainted(false);
+        exit_side.setOpaque(false);
 
         //Troca de lm
         add(troca_lm);
