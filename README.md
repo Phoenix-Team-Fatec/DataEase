@@ -68,6 +68,17 @@
 ### Video demonstrativo Sprint 3:
 https://github.com/Phoenix-Team-Fatec/DataEase/assets/69217649/9c253162-ddff-4868-a339-0ed99397c180
 
+### Sprint 4 - Alterar LM
+
+| ITEM   | STATUS |
+| :----: | :----: |
+|Código de listagem de LM| :white_check_mark: |
+|Código para ligar LM Studio| :white_check_mark: |
+|Botâo para ligar e desligar LM| :white_check_mark: |
+|Modificaçôes tela chat| :white_check_mark: |
+|Mudanças de design de produto| :white_check_mark: |
+|Melhora do texto de retorno para o usuário| :white_check_mark: |
+|Documentação via GitHub| :white_check_mark: |
 
 ## 🛠️ Tecnologias
 
