@@ -1,5 +1,6 @@
 package SQLConnection;
 
+import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +41,7 @@ public class InsertDB {
                     StringBuilder row = new StringBuilder();
                     for (int i = 1; i <= columnCount; i++) {
                         if (i > 1) {
-                            row.append(", ");
+                            row.append(" | " + " ");
                         }
                         String columnValue = rs.getString(i);
                         row.append(columnValue);
@@ -57,6 +58,7 @@ public class InsertDB {
 
         catch (SQLException u) {
             new RuntimeException(u);
+            JOptionPane.showMessageDialog(null,"Falha na consulta, verifique o requerimento e tente novamente");
         }
         return results;
     }

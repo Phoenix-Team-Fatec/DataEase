@@ -115,6 +115,12 @@ public class TelaLogin extends JFrame implements ActionListener {
         painelPrincipal.add(botaoEntrar, gcb);
 
         add(painelPrincipal);
+
+
+
+
+
+
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -171,6 +177,9 @@ public class TelaLogin extends JFrame implements ActionListener {
         telaCadastro.setVisible(true);
         this.setVisible(false); //oculta a tela de login ao abrir a tela cadastro;
     }
+
+
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
