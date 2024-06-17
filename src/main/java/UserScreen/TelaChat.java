@@ -1,3 +1,4 @@
+
 package UserScreen;
 
 import LangChain.LmConnection;
@@ -8,6 +9,9 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionListener;
 public class  TelaChat extends javax.swing.JFrame implements ActionListener {
@@ -45,11 +49,14 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
     private JLabel texto_instance = new JLabel("Instancia:");
     private JLabel texto_users = new JLabel("Usuario:");
     private JLabel texto_passwords = new JLabel("Senha:");
+    private JComboBox troca_lm = new JComboBox<>();
+
+    private JButton botao_ligar_desligar = new JButton("Start Server");
 
     //Icone Jbutton
-    ImageIcon close_icon = new ImageIcon("C:\\Users\\xgust\\DataEase\\src\\main\\java\\UserScreen\\botsair.png");
+    ImageIcon close_icon = new ImageIcon("C:\\Users\\samue\\Downloads\\icones DataEase\\icones DataEase\\botsair.png");
 
-    ImageIcon open_sidebar = new ImageIcon("C:\\Users\\xgust\\DataEase\\src\\main\\java\\UserScreen\\menu1.png");
+    ImageIcon open_sidebar = new ImageIcon("C:\\Users\\samue\\Downloads\\icones DataEase\\icones DataEase\\menu==.png");
 
     private JButton side_bar  = new JButton(open_sidebar);
 
@@ -61,7 +68,20 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         this.setNome(nome);
         this.setSenha(senha);
         this.preencherJComboBox(this.getNome(),this.getSenha());
+        
 
+        LmConnection lmConnection = new LmConnection();
+        lmConnection.LigatLm();
+        this.preencherLms();
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                lmConnection.desligarmodel();
+                lmConnection.desligarServidor();
+                // Você pode passar null como argumento aqui, ou qualquer outro valor apropriado
+            }
+        });
     }
 
     private void ScreenComponents(){
@@ -108,6 +128,15 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         botao_enviar.addActionListener(this::sendText);
         botao_enviar.setForeground(Color.white);
         add(botao_enviar);
+
+        //Botao_ligar_desligar
+        botao_ligar_desligar = new JButton("Start Server");
+        botao_ligar_desligar.setBounds(270, 25, 120, 25);
+        botao_ligar_desligar.setBorder(new LineBorder(new Color(224, 170, 252)));
+        botao_ligar_desligar.setBackground(new Color(157, 78, 221));
+        botao_ligar_desligar.setForeground(Color.white);
+        botao_ligar_desligar.addActionListener(this:: toggleServerButton);
+        add(botao_ligar_desligar);
 
 
         //Ir tele cadastro
@@ -163,13 +192,43 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         add(side_bar);
         side_bar.setBounds(20,20,32,32);
         side_bar.addActionListener(this::aparecer_side_bar);
+        // Configurações para remover as bordas
+        side_bar.setBorderPainted(false);
+        side_bar.setContentAreaFilled(false);
+        side_bar.setFocusPainted(false);
+        side_bar.setOpaque(false);
 
 
         painel_chat.add(exit_side);
         exit_side.setBounds(10,10,30,30);
         exit_side.addActionListener(this:: sair_side_bar);
+        // Configurações para remover as bordas
+        exit_side.setBorderPainted(false);
+        exit_side.setContentAreaFilled(false);
+        exit_side.setFocusPainted(false);
+        exit_side.setOpaque(false);
+
+        //Troca de lm
+        add(troca_lm);
+        troca_lm.setBounds(100,25, 150, 25);
 
 
+
+
+
+
+
+    }
+
+    private void toggleServerButton(ActionEvent actionEvent) {
+        LmConnection lmConnection = new LmConnection();
+        if(botao_ligar_desligar.getText().equals("Start Server")){
+            botao_ligar_desligar.setText("Stop Server");
+            lmConnection.ligarmodel(troca_lm.getSelectedItem().toString());
+        }else{
+            botao_ligar_desligar.setText("Start Server");
+            lmConnection.desligarmodel();
+        }
     }
 
     private void sair_side_bar(ActionEvent actionEvent) {
@@ -180,6 +239,19 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
     private void aparecer_side_bar(ActionEvent actionEvent) {
         painel_chat.setVisible(true);
         side_bar.setVisible(false);
+    }
+
+    public void preencherLms(){
+        LmConnection lmConnection = new LmConnection();
+
+        List<String> modelLanguages = lmConnection.listarLms();
+
+        troca_lm.removeAllItems();
+
+        for (int i = 1; i < modelLanguages.size(); i++) {
+            troca_lm.addItem(modelLanguages.get(i));
+        }
+
     }
 
     public void preencherJComboBox(String nome, String senha){
@@ -211,6 +283,8 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         }
     }
 
+
+
     // Abre a tela de cadastro de DB
     private void changeToTelaDB(ActionEvent actionEvent) {
         telaDB teladb = new telaDB();
@@ -234,7 +308,7 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         // caixa_resposta.setText(prompt.getPrompt());
 
         InsertDB consulta = new InsertDB(db_instance.getSelectedItem().toString(),usersBD.getSelectedItem().toString(),db_users.getSelectedItem().toString(),db_passwords.getSelectedItem().toString());
-        consulta.setSql_prompt(prompt.getPrompt(connectionDB));
+        consulta.setSql_prompt(prompt.getPrompt(connectionDB, troca_lm.getSelectedItem().toString()));
 
         List<String> resultados = consulta.select();
 
@@ -250,6 +324,8 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
     }
+
+
 
     public static void main(String[] args) {
         new TelaChat("","");
