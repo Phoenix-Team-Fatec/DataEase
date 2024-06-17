@@ -45,7 +45,7 @@ public class ConnectionDB {
     }
 
     // conexão com o banco de dados do usuário
-    public Connection getConnection(String instance, String nome_db, String user, String senha) {
+    public Connection getConnection() {
         instance = this.getInstance();
         nome_db = this.getNome_db();
         user = this.getUser();
@@ -68,13 +68,13 @@ public class ConnectionDB {
         this.setNome_db(nome_db);
         this.setUser(user);
         this.setSenha(senha);
-        getConnection(this.getInstance(),this.getNome_db(),this.getUser(),this.getSenha());
+
     }
 
     // Retorna como String o esquema do DB
     public String architectureDB() {
         StringBuilder result = new StringBuilder();
-        try (Connection connection = getConnection(this.getInstance(),this.getNome_db(),this.getUser(),this.getSenha())) {
+        try (Connection connection = getConnection()) {
             DatabaseMetaData metaData = connection.getMetaData();
             String databaseName = connection.getCatalog();
             ResultSet tables = metaData.getTables(databaseName, null, null, new String[]{"TABLE"});
@@ -108,7 +108,7 @@ public class ConnectionDB {
 
     public List<String> columNames() {
         List<String> result = new ArrayList<>();
-        try (Connection connection = getConnection(this.getInstance(),this.getNome_db(),this.getUser(),this.getSenha())) {
+        try (Connection connection = getConnection()) {
             DatabaseMetaData metaData = connection.getMetaData();
             String databaseName = connection.getCatalog();
             ResultSet tables = metaData.getTables(databaseName, null, null, new String[]{"TABLE"});

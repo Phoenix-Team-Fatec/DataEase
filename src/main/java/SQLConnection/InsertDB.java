@@ -8,7 +8,8 @@ import java.util.List;
 public class InsertDB {
 
     List<String> results = new ArrayList<>(); // Cria a lista
-    private Connection connection; // Conexão com o DB
+    private Connection connection;// Conexão com o DB
+
 
     private String sql_prompt; // Comando SQL
 
@@ -22,45 +23,56 @@ public class InsertDB {
 
     // Constructor que conecta o objeto ao DB
     public InsertDB(String instance, String nome_db, String users, String senha){
-        this.connection = new ConnectionDB(instance,nome_db,users,senha).getConnection(instance,nome_db,users,senha);
+        this.connection = new ConnectionDB(instance,nome_db,users,senha).getConnection();
     }
 
     //recebendo os dados e imprimindo na tela
-    public List<String> select() {
+    public String select(String instance, String nome_db, String users, String senha) {
 
+        ConnectionDB connectionDB = new ConnectionDB(instance, nome_db, users, senha);
         String sql = this.getSql_prompt();
+        StringBuilder resultTable = new StringBuilder();
 
-        try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery();
+        try (Connection connection = connectionDB.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
             ResultSetMetaData metaData = rs.getMetaData();
             int columnCount = metaData.getColumnCount();
 
-            while (rs.next()) {
-                {
-                    StringBuilder row = new StringBuilder();
-                    for (int i = 1; i <= columnCount; i++) {
-                        if (i > 1) {
-                            row.append(" | " + " ");
-                        }
-                        String columnValue = rs.getString(i);
-                        row.append(columnValue);
-                    }
-                    results.add(row.toString());
+            // Início da tabela HTML
+            resultTable.append("<html><table border='1'>");
 
+            // Adicionar cabeçalho da tabela com nomes das colunas
+            resultTable.append("<tr>");
+            for (int i = 1; i <= columnCount; i++) {
+                resultTable.append("<th>").append(metaData.getColumnName(i)).append("</th>");
+            }
+            resultTable.append("</tr>");
+
+            // Adicionar dados das linhas
+            boolean hasData = false; // Flag para verificar se há dados
+            while (rs.next()) {
+                hasData = true;
+                resultTable.append("<tr>");
+                for (int i = 1; i <= columnCount; i++) {
+                    resultTable.append("<td>").append(rs.getString(i) != null ? rs.getString(i) : "NULL").append("</td>");
                 }
+                resultTable.append("</tr>");
             }
 
+            if (!hasData) {
+                resultTable.append("<tr><td colspan='").append(columnCount).append("'>Nenhum dado encontrado</td></tr>");
+            }
 
-            rs.close();
-            stmt.close();
-        }
+            // Fim da tabela HTML
+            resultTable.append("</table></html>");
 
-        catch (SQLException u) {
+        } catch (SQLException u) {
             new RuntimeException(u);
-            JOptionPane.showMessageDialog(null,"Falha na consulta, verifique o requerimento e tente novamente");
+            JOptionPane.showMessageDialog(null, "Falha na consulta, verifique o requerimento e tente novamente");
         }
-        return results;
+        return resultTable.toString();
     }
 
     // Retorna resultado formatado para a tela

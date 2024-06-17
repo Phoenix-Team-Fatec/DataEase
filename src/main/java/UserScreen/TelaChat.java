@@ -310,13 +310,13 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
         InsertDB consulta = new InsertDB(db_instance.getSelectedItem().toString(),usersBD.getSelectedItem().toString(),db_users.getSelectedItem().toString(),db_passwords.getSelectedItem().toString());
         consulta.setSql_prompt(prompt.getPrompt(connectionDB, troca_lm.getSelectedItem().toString()));
 
-        List<String> resultados = consulta.select();
+        String resultados = consulta.select(db_instance.getSelectedItem().toString(),usersBD.getSelectedItem().toString(),db_users.getSelectedItem().toString(),db_passwords.getSelectedItem().toString());
 
         // Concatenando os resultados em uma única String
-        String resultadoFormatado = consulta.resultadoConcatenado(resultados);
+
 
         // Definindo a String concatenada como texto do Label
-        caixa_resposta.setText(resultadoFormatado);
+        caixa_resposta.setText(resultados);
 
 
     }
