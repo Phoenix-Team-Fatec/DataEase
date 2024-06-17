@@ -2,6 +2,9 @@ package SQLConnection;
 
 import javax.swing.*;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class ConnectionDB {
 
     private String instance;
@@ -93,6 +96,61 @@ public class ConnectionDB {
             throw new RuntimeException(excecao);
         }
         return result.toString();
+
+
+
+
+
+
+
     }
 
+
+    public List<String> columNames() {
+        List<String> result = new ArrayList<>();
+        try (Connection connection = getConnection(this.getInstance(),this.getNome_db(),this.getUser(),this.getSenha())) {
+            DatabaseMetaData metaData = connection.getMetaData();
+            String databaseName = connection.getCatalog();
+            ResultSet tables = metaData.getTables(databaseName, null, null, new String[]{"TABLE"});
+
+            while (tables.next()) {
+                String tableName = tables.getString("TABLE_NAME");
+
+                ResultSet columns = metaData.getColumns(databaseName, null, tableName, null);
+
+                while (columns.next()) {
+                    String columnName = columns.getString("COLUMN_NAME");
+                    result.add(columnName);
+                }
+                columns.close();
+
+            }
+            tables.close();
+        } catch (SQLException excecao) {
+            throw new RuntimeException(excecao);
+        }
+        return result;
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
+

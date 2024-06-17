@@ -54,9 +54,9 @@ public class  TelaChat extends javax.swing.JFrame implements ActionListener {
     private JButton botao_ligar_desligar = new JButton("Start Server");
 
     //Icone Jbutton
-    ImageIcon close_icon = new ImageIcon("C:\\Users\\xgust\\DataEase\\src\\main\\java\\UserScreen\\botsair.png");
+    ImageIcon close_icon = new ImageIcon("C:\\Users\\samue\\Downloads\\icones DataEase\\icones DataEase\\botsair.png");
 
-    ImageIcon open_sidebar = new ImageIcon("C:\\Users\\xgust\\DataEase\\src\\main\\java\\UserScreen\\menu==.png");
+    ImageIcon open_sidebar = new ImageIcon("C:\\Users\\samue\\Downloads\\icones DataEase\\icones DataEase\\menu==.png");
 
     private JButton side_bar  = new JButton(open_sidebar);
 
