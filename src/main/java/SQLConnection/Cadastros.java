@@ -31,7 +31,7 @@ public class Cadastros {
     public Connection getConnectionDataEase(){
     // método que conecta com o banco de dados cadastro
        try {
-            return DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "fatec");
+            return DriverManager.getConnection("jdbc:mysql://localhost/DataEase", "root", "******");
         }catch (SQLException e){
            throw new RuntimeException();
        }
